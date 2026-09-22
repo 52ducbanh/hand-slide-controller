@@ -1,10 +1,18 @@
-.venv*
+# Virtual environments
+.venv/
+.venv-*/
+
+# Python bytecode and caches
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*$py.class
 *.pyd
+
+# Testing & Build artifacts
+.pytest_cache/
 build/
 dist/
-.pytest_cache/
+
+# Logs and scratch files
 *.log
 *.tmp

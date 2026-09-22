@@ -1,0 +1,19 @@
+# Hand Slide Controller - Production Dependencies
+# Core Vision and Computing
+opencv-python>=4.10.0,<6.0.0
+mediapipe>=1.0.1
+numpy>=2.0.0
+
+# Windows Media Foundation & WinRT API (Windows 10/11)
+winrt-runtime>=3.2.1
+winrt-Windows.Devices.Enumeration>=3.2.1
+winrt-Windows.Foundation>=3.2.1
+winrt-Windows.Foundation.Collections>=3.2.1
+winrt-Windows.Graphics.Imaging>=3.2.1
+winrt-Windows.Media.Capture>=3.2.1
+winrt-Windows.Media.Capture.Frames>=3.2.1
+winrt-Windows.Media.MediaProperties>=3.2.1
+
+# Development & Packaging (Optional)
+# pytest>=8.0.0
+# pyinstaller>=6.10.0

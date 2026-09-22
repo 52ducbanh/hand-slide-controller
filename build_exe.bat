@@ -21,7 +21,7 @@ echo [2/3] Dang dong goi chuong trinh thanh file .exe (Khong hien CLI)...
 echo       (Qua trinh nay mat khoang 30 giay, vui long doi...)
 echo.
 
-".venv\Scripts\pyinstaller.exe" --noconfirm --onedir --noconsole --collect-all mediapipe --add-data "hand_landmarker.task;." --name "HandSlideController" main.py
+".venv\Scripts\pyinstaller.exe" HandSlideController.spec --noconfirm
 
 if %errorlevel% neq 0 (
     echo.
