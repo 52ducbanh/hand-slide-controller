@@ -1,0 +1,80 @@
+=== TOP 30 BY CUMULATIVE TIME (LIVE_STREAM) ===
+         518360 function calls (517103 primitive calls) in 41.138 seconds
+
+   Ordered by: cumulative time
+   List reduced from 443 to 30 due to restriction <30>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   41.152   41.152 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\hand_landmarker.py:597(__exit__)
+        1    0.000    0.000   41.139   41.139 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\hand_landmarker.py:585(close)
+        1    0.000    0.000   41.139   41.139 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\core\serial_dispatcher.py:78(close)
+        1    0.000    0.000   41.139   41.139 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py:220(shutdown)
+        2    0.000    0.000   41.139   20.570 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\threading.py:1117(join)
+6024/4817    0.027    0.000   41.105    0.009 {method 'acquire' of '_thread.lock' objects}
+     1201    0.020    0.000   41.099    0.034 {built-in method nt.write}
+        2    0.011    0.006   41.090   20.545 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\threading.py:1155(_wait_for_tstate_lock)
+        1    0.000    0.000   41.079   41.079 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\core\async_result_dispatcher.py:208(close)
+     1201   21.838    0.018   22.037    0.018 {built-in method nt.read}
+     1201   13.968    0.012   13.970    0.012 {built-in method time.sleep}
+     1201    1.971    0.002    1.971    0.002 {method 'read' of 'cv2.VideoCapture' objects}
+     2399    0.851    0.000    0.862    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\core\image.py:562(__del__)
+     1200    0.718    0.001    0.790    0.001 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\core\image.py:234(__init__)
+     1202    0.005    0.000    0.561    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\core\serial_dispatcher.py:70(shutdown_aware_handler)
+     1202    0.004    0.000    0.556    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\core\mediapipe_c_utils.py:124(dispatcher_wrapper)
+     1202    0.014    0.000    0.503    0.000 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py:428(result)
+     1205    0.014    0.000    0.486    0.000 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\threading.py:323(wait)
+     1202    0.004    0.000    0.419    0.000 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py:54(run)
+     1202    0.389    0.000    0.393    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\core\mediapipe_c_utils.py:129(dispatch_and_free)
+     1200    0.306    0.000    0.306    0.000 {flip}
+     1200    0.225    0.000    0.225    0.000 {cvtColor}
+     1200    0.003    0.000    0.223    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\hand_landmarker.py:534(detect_async)
+     1200    0.008    0.000    0.212    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\core\async_result_dispatcher.py:146(c_callback)
+     1200    0.010    0.000    0.160    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\hand_landmarker.py:406(convert_result)
+      957    0.011    0.000    0.110    0.000 C:\Users\52duc\Desktop\hand-slide-controller\hand_controller\gestures.py:12(classify)
+     2401    0.069    0.000    0.095    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\core\mediapipe_c_bindings.py:30(load_raw_library)
+     1200    0.033    0.000    0.093    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\hand_landmarker.py:259(from_ctypes)
+     1200    0.018    0.000    0.057    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\core\image.py:330(create_from_ctypes)
+     1202    0.009    0.000    0.048    0.000 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py:165(submit)
+
+
+
+
+=== TOP 30 BY TOTAL (INTERNAL) TIME (LIVE_STREAM) ===
+         518360 function calls (517103 primitive calls) in 41.138 seconds
+
+   Ordered by: internal time
+   List reduced from 443 to 30 due to restriction <30>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+     1201   21.838    0.018   22.037    0.018 {built-in method nt.read}
+     1201   13.968    0.012   13.970    0.012 {built-in method time.sleep}
+     1201    1.971    0.002    1.971    0.002 {method 'read' of 'cv2.VideoCapture' objects}
+     2399    0.851    0.000    0.862    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\core\image.py:562(__del__)
+     1200    0.718    0.001    0.790    0.001 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\core\image.py:234(__init__)
+     1202    0.389    0.000    0.393    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\core\mediapipe_c_utils.py:129(dispatch_and_free)
+     1200    0.306    0.000    0.306    0.000 {flip}
+      2/1    0.235    0.118    0.000    0.000 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\threading.py:1018(_bootstrap)
+     1200    0.225    0.000    0.225    0.000 {cvtColor}
+     2401    0.069    0.000    0.095    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\core\mediapipe_c_bindings.py:30(load_raw_library)
+     1200    0.033    0.000    0.093    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\hand_landmarker.py:259(from_ctypes)
+6024/4817    0.027    0.000   41.105    0.009 {method 'acquire' of '_thread.lock' objects}
+    16269    0.024    0.000    0.041    0.000 C:\Users\52duc\Desktop\hand-slide-controller\hand_controller\geometry.py:13(angle_2d)
+    20202    0.021    0.000    0.026    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\components\containers\landmark.py:95(from_ctypes)
+     1201    0.020    0.000   41.099    0.034 {built-in method nt.write}
+     1200    0.018    0.000    0.057    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\core\image.py:330(create_from_ctypes)
+    20202    0.017    0.000    0.021    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\components\containers\landmark.py:52(from_ctypes)
+    52909    0.014    0.000    0.014    0.000 {built-in method builtins.getattr}
+     1202    0.014    0.000    0.014    0.000 {method 'get' of '_queue.SimpleQueue' objects}
+     1202    0.014    0.000    0.503    0.000 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py:428(result)
+     1205    0.014    0.000    0.486    0.000 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\threading.py:323(wait)
+      957    0.011    0.000    0.110    0.000 C:\Users\52duc\Desktop\hand-slide-controller\hand_controller\gestures.py:12(classify)
+        2    0.011    0.006   41.090   20.545 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\threading.py:1155(_wait_for_tstate_lock)
+     1200    0.011    0.000    0.011    0.000 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\ctypes\__init__.py:517(cast)
+    29625    0.010    0.000    0.015    0.000 C:\Users\52duc\Desktop\hand-slide-controller\hand_controller\geometry.py:5(distance_2d)
+    70258    0.010    0.000    0.010    0.000 {built-in method math.hypot}
+     1200    0.010    0.000    0.160    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\vision\hand_landmarker.py:406(convert_result)
+     1204    0.009    0.000    0.009    0.000 {method 'put' of '_queue.SimpleQueue' objects}
+     1202    0.009    0.000    0.048    0.000 C:\Users\52duc\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py:165(submit)
+     1200    0.008    0.000    0.212    0.000 C:\Users\52duc\Desktop\hand-slide-controller\.venv\Lib\site-packages\mediapipe\tasks\python\core\async_result_dispatcher.py:146(c_callback)
+
+

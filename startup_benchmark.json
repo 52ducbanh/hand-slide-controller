@@ -1,0 +1,62 @@
+{
+  "cold_startup_trial_1": {
+    "trial": 1,
+    "type": "cold",
+    "camera_init_ms": 8200.55,
+    "model_init_ms": 46.3,
+    "first_frame_read_ms": 607.7,
+    "first_infer_submit_ms": 0.23,
+    "total_startup_ms": 9478.62,
+    "success": true
+  },
+  "warm_startups_trials_2_to_5": {
+    "trials": [
+      {
+        "trial": 2,
+        "type": "warm",
+        "camera_init_ms": 6900.63,
+        "model_init_ms": 23.24,
+        "first_frame_read_ms": 582.54,
+        "first_infer_submit_ms": 0.11,
+        "total_startup_ms": 8023.7,
+        "success": true
+      },
+      {
+        "trial": 3,
+        "type": "warm",
+        "camera_init_ms": 9195.99,
+        "model_init_ms": 28.83,
+        "first_frame_read_ms": 586.95,
+        "first_infer_submit_ms": 0.16,
+        "total_startup_ms": 10352.94,
+        "success": true
+      },
+      {
+        "trial": 4,
+        "type": "warm",
+        "camera_init_ms": 9331.48,
+        "model_init_ms": 31.54,
+        "first_frame_read_ms": 590.2,
+        "first_infer_submit_ms": 0.21,
+        "total_startup_ms": 10484.49,
+        "success": true
+      },
+      {
+        "trial": 5,
+        "type": "warm",
+        "camera_init_ms": 8624.53,
+        "model_init_ms": 32.41,
+        "first_frame_read_ms": 590.35,
+        "first_infer_submit_ms": 0.17,
+        "total_startup_ms": 9802.86,
+        "success": true
+      }
+    ],
+    "mean_camera_init_ms": 8513.16,
+    "mean_total_startup_ms": 9666.0
+  },
+  "analysis": {
+    "cold_vs_warm_ratio": 0.98,
+    "root_cause_explanation": "Trial 1 undergoes full Windows Media Foundation device graph enumeration and hardware sensor exposure; subsequent warm runs reuse driver cache."
+  }
+}

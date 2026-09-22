@@ -1,0 +1,7 @@
+trial_id,condition,wall_time_s,submitted_fps,processed_fps,mediapipe_drops,submit_to_callback_mean_ms,submit_to_callback_median_ms,callback_to_gesture_mean_ms,capture_to_action_mean_ms,capture_to_action_median_ms,capture_to_action_p95_ms,two_hand_rate_pct,cpu_mean_pct,ram_peak_mb
+1,NORMAL,27.45,29.14,29.14,0,19.49,18.73,0.1,23.82,21.98,29.06,99.0,79.22,203.98
+2,ABOVE_NORMAL,27.425,29.17,29.17,0,19.33,18.59,0.1,23.88,20.91,28.81,99.0,81.26,204.9
+3,NORMAL,27.462,29.13,29.13,0,19.21,18.36,0.1,23.38,20.6,29.43,99.0,82.62,204.36
+4,ABOVE_NORMAL,27.449,29.14,29.14,0,19.41,18.84,0.1,23.99,21.46,28.74,99.0,82.37,204.39
+5,NORMAL,27.463,29.13,29.13,0,19.39,18.41,0.1,23.92,20.52,31.29,99.0,81.71,204.53
+6,ABOVE_NORMAL,27.442,29.15,29.15,0,18.66,17.91,0.1,24.37,21.13,33.64,99.0,79.39,205.06

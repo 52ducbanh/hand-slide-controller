@@ -1,0 +1,66 @@
+{
+  "scenarios": {
+    "scenario_a_no_hand": {
+      "frames": 100,
+      "detected_hands": 0,
+      "false_triggers": 0
+    },
+    "scenario_b_1_hand_steady": {
+      "frames": 100,
+      "detected_hands": 100,
+      "like_count": 100,
+      "actions": [
+        "NEXT"
+      ]
+    },
+    "scenario_c_1_hand_active": {
+      "scissors_frames": 100,
+      "scissors_count": 73,
+      "scissors_actions": [
+        "PREVIOUS"
+      ],
+      "like_frames": 100,
+      "like_count": 100,
+      "like_actions": [
+        "NEXT"
+      ],
+      "open_palm_frames": 100,
+      "open_palm_count": 85,
+      "open_palm_actions": []
+    },
+    "scenario_d_2_hands_simultaneous": {
+      "frames": 100,
+      "both_hands_detected_frames": 99,
+      "single_hand_detected_frames": 1,
+      "zero_hand_frames": 0,
+      "scissors_detected_hands": 0,
+      "actions": [
+        "PREVIOUS",
+        "PREVIOUS"
+      ]
+    },
+    "scenario_e_2_hands_moving": {
+      "frames": 100,
+      "actions": []
+    },
+    "scenario_f_fast_motion": {
+      "frames": 100,
+      "actions": []
+    },
+    "scenario_g_transitions": {
+      "frames": 0,
+      "transition_events": 0
+    }
+  },
+  "evaluations": {
+    "scenario_a_no_hand_clean": true,
+    "scenario_b_like_action_dispatched": true,
+    "scenario_c_scissors_action_dispatched": true,
+    "scenario_c_like_action_dispatched": true,
+    "scenario_c_open_palm_action_dispatched": false,
+    "scenario_d_two_hands_both_detected": true,
+    "scenario_d_two_hands_detection_rate_pct": 99.0,
+    "scenario_d_two_hands_actions_dispatched": true
+  },
+  "verdict": "PASS"
+}

@@ -1,0 +1,42 @@
+{
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "cpu": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "cpu_count_logical": 12,
+    "cpu_count_physical": 8,
+    "ram_total_gb": 15.71,
+    "gpu_model": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "gpu_vram_mb": 6141,
+    "driver_version": "616.92",
+    "cuda_umd_version": "13.4"
+  },
+  "packages": {
+    "mediapipe": "1.0.1",
+    "opencv": "5.0.0",
+    "numpy": "2.5.3"
+  },
+  "models": {
+    "hand_landmarker.task": {
+      "sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1",
+      "size_bytes": 7819105
+    }
+  },
+  "baseline_metrics": {
+    "camera_input_fps": 28.97,
+    "processed_result_fps": 22.45,
+    "mediapipe_input_drops": 180,
+    "mediapipe_input_drop_pct": 22.5,
+    "control_overwrites": 0,
+    "metadata_evictions": 0,
+    "submit_to_callback_ms_mean": 56.73,
+    "callback_to_gesture_ms_mean": 0.4,
+    "callback_to_gesture_ms_p95": 2.26,
+    "capture_to_gesture_ms_mean": 60.89,
+    "capture_to_action_ms_mean": 68.59,
+    "capture_to_action_ms_median": 61.78,
+    "two_hand_detection_rate_pct": 98.9,
+    "startup_cold_ms": 9478.6,
+    "startup_warm_ms": 9666.0
+  }
+}
