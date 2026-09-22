@@ -1,0 +1,41 @@
+{
+  "python": "C:\\Users\\52duc\\Desktop\\hand-slide-controller\\.venv\\Scripts\\python.exe",
+  "cv2_version": "5.0.0",
+  "cv2_file": "C:\\Users\\52duc\\Desktop\\hand-slide-controller\\.venv\\Lib\\site-packages\\cv2\\__init__.py",
+  "cv2_pyd_size_bytes": 6811,
+  "cv2_pyd_size_mb": 0.01,
+  "conversion_latency": {
+    "iterations": 1000,
+    "mean_us": 355.98,
+    "p50_us": 307.8,
+    "p90_us": 486.8,
+    "p95_us": 619.4,
+    "p99_us": 948.0
+  },
+  "mediapipe": {
+    "status": "PASS",
+    "detected_hands": 0
+  },
+  "cameras": {
+    "winrt": {
+      "status": "PASS",
+      "frame_shape": [
+        720,
+        1280,
+        3
+      ],
+      "open_sec": 0.157,
+      "close_sec": 0.458
+    },
+    "msmf_fallback": {
+      "status": "PASS",
+      "frame_shape": [
+        720,
+        1280,
+        3
+      ],
+      "open_sec": 0.064,
+      "close_sec": 0.472
+    }
+  }
+}

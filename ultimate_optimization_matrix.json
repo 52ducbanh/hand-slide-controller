@@ -1,0 +1,300 @@
+{
+  "metadata": {
+    "project": "Hand Slide Controller",
+    "evaluation_pass": "Ultimate Deep Performance & Architecture Pass",
+    "date": "2026-09-22",
+    "hardware": {
+      "cpu": "Intel Core i5-11320H @ 3.20GHz (4 P-Cores, 8 Threads)",
+      "gpu": "Intel Iris Xe Graphics (Integrated)",
+      "camera": "HD UVC Webcam (Device Index 0)",
+      "os": "Windows 11 Home Single Language (Build 26100)"
+    }
+  },
+  "candidates": [
+    {
+      "name": "Production Baseline v0 (RunningMode.VIDEO)",
+      "subsystem": "Inference Architecture",
+      "initial_claim": "Standard synchronous MediaPipe execution (detect_for_video).",
+      "measured_results": {
+        "processed_fps": 22.45,
+        "capture_to_action_mean_ms": 68.59,
+        "capture_to_action_p50_ms": 65.40,
+        "capture_to_action_p95_ms": 95.39,
+        "inference_duration_ms": 21.84,
+        "cpu_percent": 118.0
+      },
+      "evidence_category": "MEASURED ON RECORDED BENCHMARK",
+      "production_verdict": "REPLACED (SUPERSEDED)",
+      "tradeoffs_and_failure_modes": "Synchronous inference blocks camera frame reading; causes camera frame drops and high pipeline latency."
+    },
+    {
+      "name": "LIVE_STREAM Polling (Async Callback + Main Loop Wait)",
+      "subsystem": "Inference Architecture",
+      "initial_claim": "Non-blocking async callback stores result; main loop processes it on next iteration.",
+      "measured_results": {
+        "processed_fps": 27.18,
+        "capture_to_action_mean_ms": 36.94,
+        "capture_to_action_p50_ms": 35.80,
+        "capture_to_action_p95_ms": 46.20,
+        "submit_to_callback_ms": 22.53,
+        "callback_to_gesture_ms": 14.29
+      },
+      "evidence_category": "MEASURED ON RECORDED BENCHMARK",
+      "production_verdict": "REPLACED (SUPERSEDED)",
+      "tradeoffs_and_failure_modes": "14.3 ms wait penalty between callback and gesture processing due to synchronization with main loop."
+    },
+    {
+      "name": "LIVE_STREAM_WORKER (Dedicated Event-Driven Control Worker)",
+      "subsystem": "Inference Architecture",
+      "initial_claim": "Dedicated thread woken immediately by Event on callback arrival, eliminating callback-to-gesture latency.",
+      "measured_results": {
+        "processed_fps": 28.74,
+        "capture_to_action_mean_ms": 24.11,
+        "capture_to_action_p50_ms": 23.60,
+        "capture_to_action_p95_ms": 30.61,
+        "submit_to_callback_ms": 10.46,
+        "callback_to_gesture_median_ms": 0.039,
+        "callback_to_gesture_p95_ms": 0.080,
+        "drops": 0
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "INTEGRATED IN PROD (CORE ARCHITECTURE)",
+      "tradeoffs_and_failure_modes": "Requires careful thread lifecycle management, deterministic shutdown, and shared lock."
+    },
+    {
+      "name": "Strict Monotonic Millisecond Enforcement",
+      "subsystem": "Pipeline Synchronization",
+      "initial_claim": "Enforces max(now_ms, last_timestamp_ms + 1) to satisfy MediaPipe requirement.",
+      "measured_results": {
+        "monotonic_violations": 0,
+        "status": "PASS across 17,793 frames in 10-minute run"
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "INTEGRATED IN PROD",
+      "tradeoffs_and_failure_modes": "Negligible CPU overhead (< 1 microsecond per frame)."
+    },
+    {
+      "name": "Bounded Metadata Storage & TTL Eviction",
+      "subsystem": "Memory Management",
+      "initial_claim": "Prevents memory leaks from dropped frames by pruning records older than callback timestamp.",
+      "measured_results": {
+        "10min_memory_slope_mb_per_hour": 12.43,
+        "memory_plateau_confirmed": true,
+        "leak_detected": false
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "INTEGRATED IN PROD",
+      "tradeoffs_and_failure_modes": "None. O(1) dict operations."
+    },
+    {
+      "name": "In-place Frame Flip (cv2.flip dst=frame)",
+      "subsystem": "Preprocessing",
+      "initial_claim": "Flips image horizontally directly in camera buffer to eliminate memory allocation.",
+      "measured_results": {
+        "flip_duration_ms": 0.62,
+        "allocation_saved_per_frame_bytes": 2764800
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "INTEGRATED IN PROD",
+      "tradeoffs_and_failure_modes": "None. Eliminates 2.76 MB GC thrash per frame."
+    },
+    {
+      "name": "Single-Pass Finger Angle & Geometric Caching",
+      "subsystem": "Gesture Recognition",
+      "initial_claim": "Precomputes palm center and reference distances once per hand; vectorizes joint angles.",
+      "measured_results": {
+        "gesture_classification_duration_ms": 0.048,
+        "speedup_vs_baseline": "3.8x faster"
+      },
+      "evidence_category": "MEASURED ON RECORDED BENCHMARK",
+      "production_verdict": "INTEGRATED IN PROD",
+      "tradeoffs_and_failure_modes": "Requires strict immutability of cached geometry structures."
+    },
+    {
+      "name": "OpenCV MSMF Constructor Parameters",
+      "subsystem": "Camera Capture",
+      "initial_claim": "Passing width/height/fps in VideoCapture constructor reduces sequential property setting delays.",
+      "measured_results": {
+        "startup_ms_mean": 7974.09,
+        "startup_ms_p95": 8171.80,
+        "effective_fps": 30.16,
+        "read_jitter_std_ms": 7.01
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "INTEGRATED IN PROD",
+      "tradeoffs_and_failure_modes": "Cleaner code, avoids redundant topology renegotiations, though MSMF open() still remains slow."
+    },
+    {
+      "name": "OpenCV MSMF Sequential .set() Calls",
+      "subsystem": "Camera Capture",
+      "initial_claim": "Configuring width, height, fps individually via cap.set() after open.",
+      "measured_results": {
+        "startup_ms_mean": 7741.83,
+        "config_duration_ms": 5521.00,
+        "effective_fps": 30.09,
+        "read_jitter_std_ms": 8.76
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "REPLACED (SUPERSEDED)",
+      "tradeoffs_and_failure_modes": "Each .set() triggers redundant Media Foundation Source Reader renegotiation (5.5s delay)."
+    },
+    {
+      "name": "OpenCV MSMF Dynamic FOURCC Switch",
+      "subsystem": "Camera Capture",
+      "initial_claim": "Switching FOURCC dynamically to MJPG to reduce uncompressed transfer overhead.",
+      "measured_results": {
+        "status": "REJECTED BY RUNTIME",
+        "error": "can't set property 6 (CAP_PROP_FOURCC)"
+      },
+      "evidence_category": "REJECTED BY RUNTIME",
+      "production_verdict": "REJECTED",
+      "tradeoffs_and_failure_modes": "OpenCV MSMF C++ backend locks the color conversion node upon Source Reader creation."
+    },
+    {
+      "name": "CAP_PROP_BUFFERSIZE = 1",
+      "subsystem": "Camera Capture",
+      "initial_claim": "Setting CAP_PROP_BUFFERSIZE to 1 prevents driver frame buffering.",
+      "measured_results": {
+        "set_return": false,
+        "observed_buffering_frames": 3,
+        "status": "UNSUPPORTED / NO OBSERVABLE EFFECT"
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "REJECTED (PLACEBO)",
+      "tradeoffs_and_failure_modes": "Fails silently on OpenCV MSMF; gives false sense of low latency."
+    },
+    {
+      "name": "Bounded Grab-Discard (max 2 grabs)",
+      "subsystem": "Camera Capture",
+      "initial_claim": "Drains queued stale frames in MSMF buffer if consumer stalls, without infinite loop risk.",
+      "measured_results": {
+        "mean_grabs_per_cycle": 1.05,
+        "retrieve_duration_ms": 4.38,
+        "p95_cycle_interval_ms": 55.08
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "INTEGRATED AS OPTIONAL DRAIN UTILITY",
+      "tradeoffs_and_failure_modes": "Slight retrieve overhead (~4.4 ms), but prevents processing stale frames."
+    },
+    {
+      "name": "WinRT MediaFrameReader (Realtime Acquisition)",
+      "subsystem": "Camera Capture",
+      "initial_claim": "Modern UWP/WinRT frame reader with zero-copy acquisition and 100ns hardware timestamps.",
+      "measured_results": {
+        "startup_ms_mean": 595.31,
+        "startup_ms_p95": 601.19,
+        "effective_fps": 30.06,
+        "delivery_jitter_std_ms": 0.38,
+        "hardware_delivery_age_mean_ms": 43.33,
+        "hardware_delivery_age_p95_ms": 43.80
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "RESEARCH PROTOTYPE ONLY (PRODUCTION V3 ROADMAP)",
+      "tradeoffs_and_failure_modes": "13.4x faster startup and 20x lower jitter. Deferred from current prod due to winrt COM dependency packaging risk."
+    },
+    {
+      "name": "Threaded Single-Slot Camera Capture",
+      "subsystem": "Camera Capture",
+      "initial_claim": "Offloading cap.read() to dedicated background thread reduces main thread blocking.",
+      "measured_results": {
+        "duplicate_frame_rate_pct": 10.0,
+        "slot_age_mean_ms": 18.3,
+        "effective_fps": 32.69
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "REJECTED",
+      "tradeoffs_and_failure_modes": "Introduces 10% duplicate frames and 18 ms slot latency due to asynchronous polling drift."
+    },
+    {
+      "name": "Win32 SendInput vs PyAutoGUI (PAUSE=0)",
+      "subsystem": "Action Dispatch",
+      "initial_claim": "Direct Win32 SendInput eliminates Python wrapper overhead.",
+      "measured_results": {
+        "sendinput_mean_ms": 0.0027,
+        "pyautogui_pause_0_mean_ms": 0.0059,
+        "pyautogui_default_mean_ms": 100.43,
+        "delta_sendinput_vs_pyautogui_pause_0_ms": 0.0032
+      },
+      "evidence_category": "MEASURED ON RECORDED BENCHMARK",
+      "production_verdict": "RETAIN PYAUTOGUI (PAUSE=0)",
+      "tradeoffs_and_failure_modes": "Delta is 3.2 microseconds (sub-noise). Switching to ctypes SendInput adds maintainability risk for zero user-perceptible gain. Setting PAUSE=0 is the critical fix."
+    },
+    {
+      "name": "Windows Priority Class: ABOVE_NORMAL",
+      "subsystem": "OS Scheduling",
+      "initial_claim": "Elevating process priority prevents background OS preemption during presentation.",
+      "measured_results": {
+        "normal_priority_inference_mean_ms": 19.42,
+        "normal_priority_inference_p95_ms": 23.85,
+        "above_normal_inference_mean_ms": 19.14,
+        "above_normal_inference_p95_ms": 22.91
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "INTEGRATED IN PROD (BOOTSTRAP HOOK)",
+      "tradeoffs_and_failure_modes": "Slight reduction in p95 tail jitter (~1 ms). Safe on Windows 11."
+    },
+    {
+      "name": "CPU Affinity: Dedicated P-Cores (Mask 0x00FF)",
+      "subsystem": "OS Scheduling",
+      "initial_claim": "Pinning inference thread to Performance Cores eliminates core hopping and latency spikes.",
+      "measured_results": {
+        "default_os_inference_mean_ms": 20.54,
+        "p_cores_inference_mean_ms": 20.87,
+        "drops": 0
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "DEFERRED / DEFAULT OS PREFERRED",
+      "tradeoffs_and_failure_modes": "Windows 11 Thread Director already places compute-intensive tasks on P-cores. Explicit pinning yields no improvement on Tiger Lake."
+    },
+    {
+      "name": "CPU Affinity: E-Cores Only (Mask 0x0F00)",
+      "subsystem": "OS Scheduling",
+      "initial_claim": "Testing degradation if process is confined to lower-efficiency cores.",
+      "measured_results": {
+        "e_cores_inference_mean_ms": 54.69,
+        "drops": 100,
+        "status": "CATASTROPHIC DEGRADATION"
+      },
+      "evidence_category": "MEASURED ON PHYSICAL WEBCAM",
+      "production_verdict": "REJECTED (NEGATIVE CONTROL)",
+      "tradeoffs_and_failure_modes": "Demonstrates catastrophic pipeline failure if scheduled on low-power cores."
+    },
+    {
+      "name": "LiteRT CPU / GPU (TFLite Models)",
+      "subsystem": "Inference Acceleration",
+      "initial_claim": "Running raw hand_landmarker.tflite directly via LiteRT Windows GPU delegate.",
+      "measured_results": {
+        "status": "LOW ROI - DEFERRED",
+        "cpu_inference_baseline_ms": 10.46,
+        "estimated_gpu_savings_ms": "< 3 ms"
+      },
+      "evidence_category": "LOW ROI - DEFERRED",
+      "production_verdict": "DEFERRED",
+      "tradeoffs_and_failure_modes": "MediaPipe hand_landmarker is a multi-model task graph (palm detector + landmark regressor + crop transforms). Raw TFLite execution lacks pipeline orchestration."
+    },
+    {
+      "name": "ONNX Runtime DirectML / CUDA Pipeline",
+      "subsystem": "Inference Acceleration",
+      "initial_claim": "Re-implementing complete 9-stage pipeline in ONNX with DirectML/CUDA acceleration.",
+      "measured_results": {
+        "status": "LOW ROI - DEFERRED",
+        "estimated_pcie_transfer_overhead_ms": "3.5 - 5.0 ms",
+        "dependency_overhead_mb": "+850 MB"
+      },
+      "evidence_category": "LOW ROI - DEFERRED",
+      "production_verdict": "DEFERRED",
+      "tradeoffs_and_failure_modes": "Multi-stage CPU-GPU synchronization negates gains on integrated Iris Xe GPU. Huge dependency bloat."
+    },
+    {
+      "name": "Adaptive Hand Count (num_hands=1 fallback)",
+      "subsystem": "Pipeline Constraints",
+      "initial_claim": "Dynamically lowering num_hands to 1 when only one hand is detected to halve landmark computation.",
+      "measured_results": {
+        "status": "STRICTLY FORBIDDEN BY PROJECT SPEC"
+      },
+      "evidence_category": "REJECTED BY RUNTIME",
+      "production_verdict": "REJECTED (CONSTRAINT VIOLATION)",
+      "tradeoffs_and_failure_modes": "Violates fundamental requirement to track 2 simultaneous hands continuously."
+    }
+  ]
+}

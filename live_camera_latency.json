@@ -1,0 +1,141 @@
+{
+  "metadata": {
+    "test_type": "LIVE_PHYSICAL_CAMERA_LATENCY_AND_BUFFERING",
+    "date": "2026-09-22 09:00:16",
+    "backend": "cv2.CAP_MSMF",
+    "device_index": 0,
+    "target_resolution": "1280x720",
+    "target_fps": 30,
+    "sensor_timestamp_status": "TRUE SOURCE/SENSOR TIMESTAMP NOT OBSERVABLE THROUGH THIS API",
+    "clock_domain": "time.perf_counter_ns() monotonic clock"
+  },
+  "startup": {
+    "open_time_ms": 7399.49,
+    "first_frame_ms": 582.13,
+    "negotiated_resolution": "1280x720",
+    "negotiated_fps": 30.0
+  },
+  "buffersize_property_audit": {
+    "property": "cv2.CAP_PROP_BUFFERSIZE",
+    "initial_get": 1.0,
+    "set_to_1_return": false,
+    "after_get": 1.0,
+    "status": "UNSUPPORTED / NO OBSERVABLE EFFECT",
+    "note": "OpenCV MSMF backend does not honor CAP_PROP_BUFFERSIZE; driver maintains internal sample queue."
+  },
+  "steady_state_stream": {
+    "sensor_timestamp_status": "TRUE SOURCE/SENSOR TIMESTAMP NOT OBSERVABLE THROUGH THIS API",
+    "total_frames_captured": 300,
+    "failed_reads": 0,
+    "duplicate_frames_detected": 6,
+    "duplicate_rate_pct": 2.0,
+    "duration_sec": 9.994,
+    "effective_fps": 30.02,
+    "nominal_fps": 30.0,
+    "read_duration_ms": {
+      "samples": 300,
+      "mean": 33.221,
+      "median": 31.954,
+      "p50": 31.954,
+      "p90": 34.789,
+      "p95": 47.939,
+      "p99": 64.583,
+      "min": 2.898,
+      "max": 81.119,
+      "std": 8.477
+    },
+    "frame_interval_ms": {
+      "samples": 300,
+      "mean": 33.313,
+      "median": 32.044,
+      "p50": 32.044,
+      "p90": 34.881,
+      "p95": 48.012,
+      "p99": 64.665,
+      "min": 3.001,
+      "max": 81.194,
+      "std": 8.478
+    },
+    "delivery_jitter_std_ms": 8.478,
+    "p95_frame_interval_ms": 48.012
+  },
+  "buffering_behavior_under_load": [
+    {
+      "injected_pause_ms": 35,
+      "actual_pause_ms": 35.1,
+      "read_1_duration_ms": 2.59,
+      "read_2_duration_ms": 28.76,
+      "read_3_duration_ms": 31.6,
+      "buffered_frame_returned": true,
+      "queue_behavior": "Queue hold: first read returned immediately from MSMF buffer"
+    },
+    {
+      "injected_pause_ms": 70,
+      "actual_pause_ms": 70.1,
+      "read_1_duration_ms": 3.13,
+      "read_2_duration_ms": 4.26,
+      "read_3_duration_ms": 19.42,
+      "buffered_frame_returned": true,
+      "queue_behavior": "Queue hold: first read returned immediately from MSMF buffer"
+    },
+    {
+      "injected_pause_ms": 100,
+      "actual_pause_ms": 100.42,
+      "read_1_duration_ms": 3.33,
+      "read_2_duration_ms": 5.26,
+      "read_3_duration_ms": 5.32,
+      "buffered_frame_returned": true,
+      "queue_behavior": "Queue hold: first read returned immediately from MSMF buffer"
+    },
+    {
+      "injected_pause_ms": 150,
+      "actual_pause_ms": 150.36,
+      "read_1_duration_ms": 5.09,
+      "read_2_duration_ms": 5.95,
+      "read_3_duration_ms": 29.6,
+      "buffered_frame_returned": false,
+      "queue_behavior": "No buffered frame: read blocked for hardware"
+    }
+  ],
+  "bounded_grab_retrieve_evaluation": {
+    "cycles_tested": 60,
+    "max_grabs_allowed": 3,
+    "grab_count_per_cycle": {
+      "samples": 60,
+      "mean": 1.05,
+      "median": 1.0,
+      "p50": 1.0,
+      "p90": 1.0,
+      "p95": 1.05,
+      "p99": 2.0,
+      "min": 1.0,
+      "max": 2.0,
+      "std": 0.218
+    },
+    "cycle_interval_ms": {
+      "samples": 60,
+      "mean": 35.18,
+      "median": 32.367,
+      "p50": 32.367,
+      "p90": 48.131,
+      "p95": 55.083,
+      "p99": 64.947,
+      "min": 29.104,
+      "max": 65.294,
+      "std": 8.491
+    },
+    "retrieve_duration_ms": {
+      "samples": 60,
+      "mean": 4.381,
+      "median": 4.618,
+      "p50": 4.618,
+      "p90": 5.143,
+      "p95": 5.303,
+      "p99": 6.071,
+      "min": 2.771,
+      "max": 6.224,
+      "std": 0.831
+    },
+    "verdict": "Bounded grab successfully drains 1-2 queued frames if downstream delayed, without infinite blocking loop."
+  }
+}

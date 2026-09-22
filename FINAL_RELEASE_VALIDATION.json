@@ -1,0 +1,131 @@
+{
+  "validation_metadata": {
+    "commit": "606ac8527cd0b13bd77c661bce3a710e410520a2",
+    "commit_short": "606ac85",
+    "timestamp_iso": "2026-09-22T12:18:00+07:00",
+    "hardware": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12450H",
+      "ram_gb": 15.71,
+      "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU (Driver 32.0.16.1692)",
+      "os": "Windows 11 Home (Build 26100)"
+    }
+  },
+  "gates": {
+    "gate_1_unit_tests": {
+      "status": "PASS",
+      "total_tests": 58,
+      "passed_tests": 58,
+      "failed_tests": 0,
+      "duration_sec": 25.79,
+      "verdict": "58/58 PASS"
+    },
+    "gate_2_final_packaged_build": {
+      "status": "PASS",
+      "launcher_exe_bytes": 8873184,
+      "launcher_exe_mb": 8.46,
+      "total_distribution_bytes": 271242640,
+      "total_distribution_mb": 258.68,
+      "file_count": 562,
+      "expected_target_mb": "~258.68 MB",
+      "target_matched": true,
+      "verdict": "PASS"
+    },
+    "gate_3_10min_live_stability": {
+      "status": "PASS",
+      "duration_sec": 600.0,
+      "camera_backend": "WINRT",
+      "resolution": "1280x720 @ 30 FPS",
+      "num_hands": 2,
+      "action_dispatcher": "NATIVE_WIN32_SENDINPUT",
+      "raw_stage_counters": {
+        "frame_arrived_events": 17838,
+        "frames_acquired": 17838,
+        "frames_rgb_ready": 17838,
+        "frames_published": 17838,
+        "frames_consumed": 17838,
+        "frames_submitted": 17838,
+        "callbacks_received": 17837,
+        "worker_packets_consumed": 17837,
+        "results_processed": 17837,
+        "actions_dispatched": 0,
+        "exceptions": 0,
+        "worker_thread_clean_join": true
+      },
+      "throughput": {
+        "source_fps": 29.98,
+        "processed_fps": 29.98
+      },
+      "memory": {
+        "rss_at_60s_mb": 167.04,
+        "rss_at_300s_mb": 167.85,
+        "rss_at_600s_mb": 168.09,
+        "steady_min_mb": 167.04,
+        "steady_max_mb": 171.16,
+        "steady_range_mb": 4.12,
+        "slope_60_to_600_mb_per_min": -0.0872,
+        "slope_300_to_600_mb_per_min": 0.0448,
+        "memory_verdict": "MEMORY PLATEAU CONFIRMED\nNO EVIDENCE OF UNBOUNDED LEAK"
+      },
+      "verdict": "PASS"
+    },
+    "gate_4_10x_reopen": {
+      "status": "PASS",
+      "cycles_attempted": 10,
+      "open_success": "10/10",
+      "stream_success": "10/10",
+      "close_success": "10/10",
+      "avg_open_ms": 107.5,
+      "avg_close_ms": 443.7,
+      "no_camera_lock": true,
+      "no_callback_after_close": true,
+      "no_worker_left_alive": true,
+      "verdict": "PASS"
+    },
+    "gate_5_accuracy_regression": {
+      "status": "PASS",
+      "video_file": "benchmark_input.mp4",
+      "total_frames": 800,
+      "expected_actions": "4/4 (['NEXT', 'NEXT', 'PREVIOUS', 'PREVIOUS'])",
+      "actions_matched": true,
+      "false_triggers": 0,
+      "ground_truth_two_hand_frames": 100,
+      "ground_truth_two_hand_prevalence_pct": 12.5,
+      "observed_two_hand_frames": 115,
+      "observed_two_hand_detection_prevalence_pct": 14.37,
+      "two_hand_detected_in_gt": 99,
+      "two_hand_detection_recall_pct": 99.0,
+      "recall_regression": false,
+      "verdict": "PASS"
+    },
+    "gate_6_fallback": {
+      "status": "PASS",
+      "forced_winrt_failure": true,
+      "auto_to_msmf_fallback_worked": true,
+      "msmf_camera_class": "OpenCVMSMFCameraSource",
+      "msmf_stream_success": "10/10 frames (1280x720x3)",
+      "msmf_clean_shutdown_ms": 278.8,
+      "verdict": "PASS"
+    },
+    "gate_7_packaged_exe_smoke_test": {
+      "status": "PASS",
+      "binary": "dist/HandSlideController/HandSlideController.exe",
+      "launch_success": true,
+      "winrt_loaded": true,
+      "camera_opened": true,
+      "mediapipe_loaded": true,
+      "two_hand_path_active": true,
+      "sendinput_path_active": true,
+      "threads_observed": 79,
+      "rss_mb": 179.03,
+      "clean_shutdown": true,
+      "shutdown_duration_ms": 30.8,
+      "zero_workers_alive": true,
+      "verdict": "PASS"
+    }
+  },
+  "final_release_verdict": {
+    "architecture_frozen": "YES",
+    "final_release_validation": "PASS",
+    "performance_optimization_closed": "YES"
+  }
+}

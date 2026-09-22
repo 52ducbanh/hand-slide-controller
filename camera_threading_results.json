@@ -1,0 +1,43 @@
+{
+  "candidate": "SINGLE_SLOT_THREADED_CAPTURE",
+  "duration_sec": 6.123,
+  "acquired_frames": 200,
+  "consumer_fps": 32.66,
+  "duplicate_slot_hits": 20,
+  "duplicate_rate_pct": 10.0,
+  "get_call_duration_ms": {
+    "mean": 0.008,
+    "median": 0.005,
+    "p50": 0.005,
+    "p90": 0.007,
+    "p95": 0.014,
+    "p99": 0.09,
+    "min": 0.001,
+    "max": 0.172,
+    "std": 0.016
+  },
+  "slot_freshness_age_ms": {
+    "mean": 18.295,
+    "median": 17.49,
+    "p50": 17.49,
+    "p90": 30.409,
+    "p95": 35.038,
+    "p99": 56.826,
+    "min": 0.462,
+    "max": 64.835,
+    "std": 11.526
+  },
+  "consumer_interval_ms": {
+    "mean": 30.463,
+    "median": 30.599,
+    "p50": 30.599,
+    "p90": 30.846,
+    "p95": 30.969,
+    "p99": 31.258,
+    "min": 0.051,
+    "max": 32.099,
+    "std": 2.168
+  },
+  "cpu_usage_pct": 21.2,
+  "verdict": "REJECT: Adds thread synchronization and returns duplicate slot frames when consumer cadence slightly drifts; direct capture in unblocked loop is cleaner."
+}

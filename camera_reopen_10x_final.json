@@ -1,0 +1,81 @@
+{
+  "total_trials": 10,
+  "successful_opens": 10,
+  "successful_streams": 10,
+  "successful_closes": 10,
+  "all_pass": true,
+  "avg_open_ms": 107.5,
+  "avg_close_ms": 443.7,
+  "trials": [
+    {
+      "iteration": 1,
+      "open_sec": 0.1848,
+      "stream_ok": true,
+      "close_sec": 0.4636,
+      "rss_mb": 65.37
+    },
+    {
+      "iteration": 2,
+      "open_sec": 0.09,
+      "stream_ok": true,
+      "close_sec": 0.2502,
+      "rss_mb": 65.65
+    },
+    {
+      "iteration": 3,
+      "open_sec": 0.2686,
+      "stream_ok": true,
+      "close_sec": 0.4588,
+      "rss_mb": 65.52
+    },
+    {
+      "iteration": 4,
+      "open_sec": 0.0901,
+      "stream_ok": true,
+      "close_sec": 0.4634,
+      "rss_mb": 65.61
+    },
+    {
+      "iteration": 5,
+      "open_sec": 0.0892,
+      "stream_ok": true,
+      "close_sec": 0.4645,
+      "rss_mb": 64.83
+    },
+    {
+      "iteration": 6,
+      "open_sec": 0.0729,
+      "stream_ok": true,
+      "close_sec": 0.4679,
+      "rss_mb": 64.8
+    },
+    {
+      "iteration": 7,
+      "open_sec": 0.0662,
+      "stream_ok": true,
+      "close_sec": 0.4688,
+      "rss_mb": 65.69
+    },
+    {
+      "iteration": 8,
+      "open_sec": 0.0645,
+      "stream_ok": true,
+      "close_sec": 0.4768,
+      "rss_mb": 65.9
+    },
+    {
+      "iteration": 9,
+      "open_sec": 0.0827,
+      "stream_ok": true,
+      "close_sec": 0.4592,
+      "rss_mb": 65.87
+    },
+    {
+      "iteration": 10,
+      "open_sec": 0.0656,
+      "stream_ok": true,
+      "close_sec": 0.4641,
+      "rss_mb": 66.0
+    }
+  ]
+}

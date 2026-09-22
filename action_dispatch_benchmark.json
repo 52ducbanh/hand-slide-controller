@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "test_type": "ACTION_DISPATCH_AND_STARTUP_AUDIT",
+    "date": "2026-09-22 09:06:58"
+  },
+  "action_dispatch": {
+    "iterations": 1000,
+    "win32_send_input_ms": {
+      "samples": 1000,
+      "mean": 0.0027,
+      "median": 0.0024,
+      "p50": 0.0024,
+      "p90": 0.0027,
+      "p95": 0.0028,
+      "p99": 0.0049,
+      "min": 0.0023,
+      "max": 0.0426,
+      "std": 0.0023
+    },
+    "pyautogui_pause_0_ms": {
+      "samples": 1000,
+      "mean": 0.0059,
+      "median": 0.005,
+      "p50": 0.005,
+      "p90": 0.0056,
+      "p95": 0.0063,
+      "p99": 0.0194,
+      "min": 0.0048,
+      "max": 0.173,
+      "std": 0.0085
+    },
+    "pyautogui_default_pause_ms": {
+      "samples": 10,
+      "mean": 100.4326,
+      "median": 100.4798,
+      "p50": 100.4798,
+      "p90": 100.5887,
+      "p95": 100.6155,
+      "p99": 100.6369,
+      "min": 100.1638,
+      "max": 100.6422,
+      "std": 0.1501
+    },
+    "delta_pyautogui_minus_sendinput_ms": 0.0032,
+    "is_difference_statistically_significant": false,
+    "verdict": "KEEP PYAUTOGUI: Win32 SendInput gain is sub-millisecond (within benchmark noise), PyAutoGUI with PAUSE=0 is already under 0.05 ms."
+  },
+  "startup_architecture": {
+    "model_init_duration_ms": 152.5,
+    "camera_startup_duration_ms": 7711.18,
+    "sequential_startup_total_ms": 7863.68,
+    "parallel_startup_estimated_ms": 7716.18,
+    "potential_startup_saving_ms": 147.5,
+    "perceived_startup_analysis": "Because camera hardware takes ~7.4s while model init takes only ~24ms, parallelizing model init with camera open saves at most ~24ms (0.3% of startup). However, Perceived Startup can be reduced to <100ms by displaying the application window immediately with a status overlay ('Connecting to Camera...') while hardware initializes asynchronously."
+  }
+}

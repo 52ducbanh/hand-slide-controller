@@ -1,0 +1,768 @@
+{
+  "metadata": {
+    "test_type": "CAMERA_BACKEND_COMPREHENSIVE_BENCHMARK",
+    "date": "2026-09-22 09:06:38",
+    "device_index": 0,
+    "target_resolution": "1280x720",
+    "target_fps": 30
+  },
+  "candidate_summaries": {
+    "A_OPENCV_MSMF_CONSTRUCTOR": {
+      "trials_count": 3,
+      "startup_total_ms": {
+        "samples": 3,
+        "mean": 7974.087,
+        "median": 7972.94,
+        "p50": 7972.94,
+        "p90": 8149.7,
+        "p95": 8171.795,
+        "p99": 8189.471,
+        "min": 7755.43,
+        "max": 8193.89,
+        "std": 179.002
+      },
+      "effective_fps": {
+        "samples": 3,
+        "mean": 30.157,
+        "median": 30.11,
+        "p50": 30.11,
+        "p90": 30.246,
+        "p95": 30.263,
+        "p99": 30.277,
+        "min": 30.08,
+        "max": 30.28,
+        "std": 0.088
+      },
+      "cpu_percent": {
+        "samples": 3,
+        "mean": 27.467,
+        "median": 25.6,
+        "p50": 25.6,
+        "p90": 31.76,
+        "p95": 32.53,
+        "p99": 33.146,
+        "min": 23.5,
+        "max": 33.3,
+        "std": 4.213
+      },
+      "negotiated_format": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "RGB24 (MSMF default)"
+      }
+    },
+    "B_OPENCV_MSMF_SEQUENTIAL": {
+      "trials_count": 3,
+      "startup_total_ms": {
+        "samples": 3,
+        "mean": 7741.83,
+        "median": 7666.08,
+        "p50": 7666.08,
+        "p90": 7873.264,
+        "p95": 7899.162,
+        "p99": 7919.88,
+        "min": 7634.35,
+        "max": 7925.06,
+        "std": 130.209
+      },
+      "effective_fps": {
+        "samples": 3,
+        "mean": 30.087,
+        "median": 30.09,
+        "p50": 30.09,
+        "p90": 30.09,
+        "p95": 30.09,
+        "p99": 30.09,
+        "min": 30.08,
+        "max": 30.09,
+        "std": 0.005
+      },
+      "cpu_percent": {
+        "samples": 3,
+        "mean": 0.0,
+        "median": 0.0,
+        "p50": 0.0,
+        "p90": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "std": 0.0
+      },
+      "negotiated_format": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "RGB24 (MSMF default)"
+      }
+    },
+    "D_WINRT_MEDIA_FRAME_READER": {
+      "trials_count": 3,
+      "startup_total_ms": {
+        "samples": 3,
+        "mean": 595.307,
+        "median": 594.71,
+        "p50": 594.71,
+        "p90": 600.47,
+        "p95": 601.19,
+        "p99": 601.766,
+        "min": 589.3,
+        "max": 601.91,
+        "std": 5.165
+      },
+      "effective_fps": {
+        "samples": 3,
+        "mean": 30.063,
+        "median": 30.09,
+        "p50": 30.09,
+        "p90": 30.106,
+        "p95": 30.108,
+        "p99": 30.11,
+        "min": 29.99,
+        "max": 30.11,
+        "std": 0.052
+      },
+      "cpu_percent": {
+        "samples": 3,
+        "mean": 0.0,
+        "median": 0.0,
+        "p50": 0.0,
+        "p90": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "std": 0.0
+      },
+      "negotiated_format": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "NV12"
+      },
+      "hardware_sample_delivery_age_ms": {
+        "samples": 3,
+        "mean": 43.331,
+        "median": 43.283,
+        "p50": 43.283,
+        "p90": 43.745,
+        "p95": 43.802,
+        "p99": 43.848,
+        "min": 42.849,
+        "max": 43.86,
+        "std": 0.414
+      }
+    },
+    "E_OPENCV_MSMF_THREADED": {
+      "trials_count": 3,
+      "startup_total_ms": {
+        "samples": 3,
+        "mean": 7754.503,
+        "median": 7757.44,
+        "p50": 7757.44,
+        "p90": 7799.896,
+        "p95": 7805.203,
+        "p99": 7809.449,
+        "min": 7695.56,
+        "max": 7810.51,
+        "std": 46.974
+      },
+      "effective_fps": {
+        "samples": 3,
+        "mean": 32.693,
+        "median": 32.71,
+        "p50": 32.71,
+        "p90": 32.718,
+        "p95": 32.719,
+        "p99": 32.72,
+        "min": 32.65,
+        "max": 32.72,
+        "std": 0.031
+      },
+      "cpu_percent": {
+        "samples": 3,
+        "mean": 0.0,
+        "median": 0.0,
+        "p50": 0.0,
+        "p90": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "std": 0.0
+      },
+      "negotiated_format": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "RGB24"
+      }
+    }
+  },
+  "trials": [
+    {
+      "candidate": "A_OPENCV_MSMF_CONSTRUCTOR",
+      "trial": 1,
+      "status": "PASS",
+      "startup": {
+        "open_ms": 7605.4,
+        "config_ms": 0.0,
+        "first_frame_ms": 588.48,
+        "total_startup_ms": 8193.89
+      },
+      "negotiated": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "RGB24 (MSMF default)"
+      },
+      "stream": {
+        "effective_fps": 30.28,
+        "frame_interval_ms": {
+          "samples": 100,
+          "mean": 33.029,
+          "median": 31.896,
+          "p50": 31.896,
+          "p90": 34.589,
+          "p95": 47.739,
+          "p99": 64.824,
+          "min": 3.054,
+          "max": 65.181,
+          "std": 7.005
+        },
+        "read_duration_ms": {
+          "samples": 100,
+          "mean": 33.023,
+          "median": 31.891,
+          "p50": 31.891,
+          "p90": 34.584,
+          "p95": 47.734,
+          "p99": 64.819,
+          "min": 3.041,
+          "max": 65.177,
+          "std": 7.007
+        },
+        "sample_delivery_age": "TRUE SOURCE/SENSOR TIMESTAMP NOT OBSERVABLE THROUGH THIS API",
+        "cpu_percent": 25.6
+      }
+    },
+    {
+      "candidate": "B_OPENCV_MSMF_SEQUENTIAL",
+      "trial": 1,
+      "status": "PASS",
+      "startup": {
+        "open_ms": 1821.36,
+        "config_ms": 5521.0,
+        "first_frame_ms": 582.7,
+        "total_startup_ms": 7925.06
+      },
+      "negotiated": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "RGB24 (MSMF default)"
+      },
+      "stream": {
+        "effective_fps": 30.09,
+        "frame_interval_ms": {
+          "samples": 100,
+          "mean": 33.234,
+          "median": 32.001,
+          "p50": 32.001,
+          "p90": 34.724,
+          "p95": 48.818,
+          "p99": 64.698,
+          "min": 2.849,
+          "max": 64.876,
+          "std": 8.76
+        },
+        "read_duration_ms": {
+          "samples": 100,
+          "mean": 33.228,
+          "median": 31.996,
+          "p50": 31.996,
+          "p90": 34.718,
+          "p95": 48.812,
+          "p99": 64.692,
+          "min": 2.844,
+          "max": 64.872,
+          "std": 8.76
+        },
+        "sample_delivery_age": "TRUE SOURCE/SENSOR TIMESTAMP NOT OBSERVABLE THROUGH THIS API",
+        "cpu_percent": 0.0
+      }
+    },
+    {
+      "candidate": "D_WINRT_MEDIA_FRAME_READER",
+      "trial": 1,
+      "status": "PASS",
+      "startup": {
+        "open_ms": 45.78,
+        "config_ms": 3.48,
+        "first_frame_ms": 518.16,
+        "total_startup_ms": 594.71
+      },
+      "negotiated": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "NV12"
+      },
+      "stream": {
+        "effective_fps": 29.99,
+        "frame_interval_ms": {
+          "samples": 100,
+          "mean": 32.8,
+          "median": 32.017,
+          "p50": 32.017,
+          "p90": 32.163,
+          "p95": 33.019,
+          "p99": 47.895,
+          "min": 31.776,
+          "max": 47.901,
+          "std": 3.46
+        },
+        "hardware_sample_delivery_age_ms": {
+          "samples": 100,
+          "mean": 43.283,
+          "median": 43.556,
+          "p50": 43.556,
+          "p90": 49.19,
+          "p95": 50.278,
+          "p99": 59.288,
+          "min": 34.943,
+          "max": 60.171,
+          "std": 5.413
+        },
+        "cpu_percent": 0.0
+      }
+    },
+    {
+      "candidate": "E_OPENCV_MSMF_THREADED",
+      "trial": 1,
+      "status": "PASS",
+      "startup": {
+        "total_startup_ms": 7810.51
+      },
+      "negotiated": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "RGB24"
+      },
+      "stream": {
+        "effective_fps": 32.65,
+        "duplicate_rate_pct": 9.0,
+        "slot_age_ms": {
+          "samples": 100,
+          "mean": 17.306,
+          "median": 16.018,
+          "p50": 16.018,
+          "p90": 29.785,
+          "p95": 32.872,
+          "p99": 53.857,
+          "min": 0.67,
+          "max": 63.989,
+          "std": 11.509
+        },
+        "frame_interval_ms": {
+          "samples": 100,
+          "mean": 30.32,
+          "median": 30.635,
+          "p50": 30.635,
+          "p90": 30.867,
+          "p95": 30.955,
+          "p99": 31.006,
+          "min": 0.002,
+          "max": 31.135,
+          "std": 3.053
+        },
+        "cpu_percent": 0.0
+      }
+    },
+    {
+      "candidate": "A_OPENCV_MSMF_CONSTRUCTOR",
+      "trial": 2,
+      "status": "PASS",
+      "startup": {
+        "open_ms": 7389.02,
+        "config_ms": 0.0,
+        "first_frame_ms": 583.91,
+        "total_startup_ms": 7972.94
+      },
+      "negotiated": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "RGB24 (MSMF default)"
+      },
+      "stream": {
+        "effective_fps": 30.11,
+        "frame_interval_ms": {
+          "samples": 100,
+          "mean": 33.217,
+          "median": 32.054,
+          "p50": 32.054,
+          "p90": 34.826,
+          "p95": 48.12,
+          "p99": 63.912,
+          "min": 3.03,
+          "max": 64.26,
+          "std": 8.521
+        },
+        "read_duration_ms": {
+          "samples": 100,
+          "mean": 33.211,
+          "median": 32.049,
+          "p50": 32.049,
+          "p90": 34.821,
+          "p95": 48.116,
+          "p99": 63.908,
+          "min": 3.025,
+          "max": 64.256,
+          "std": 8.522
+        },
+        "sample_delivery_age": "TRUE SOURCE/SENSOR TIMESTAMP NOT OBSERVABLE THROUGH THIS API",
+        "cpu_percent": 33.3
+      }
+    },
+    {
+      "candidate": "B_OPENCV_MSMF_SEQUENTIAL",
+      "trial": 2,
+      "status": "PASS",
+      "startup": {
+        "open_ms": 1855.59,
+        "config_ms": 5225.9,
+        "first_frame_ms": 584.59,
+        "total_startup_ms": 7666.08
+      },
+      "negotiated": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "RGB24 (MSMF default)"
+      },
+      "stream": {
+        "effective_fps": 30.09,
+        "frame_interval_ms": {
+          "samples": 100,
+          "mean": 33.229,
+          "median": 32.169,
+          "p50": 32.169,
+          "p90": 34.72,
+          "p95": 48.625,
+          "p99": 63.293,
+          "min": 3.041,
+          "max": 64.108,
+          "std": 8.409
+        },
+        "read_duration_ms": {
+          "samples": 100,
+          "mean": 33.224,
+          "median": 32.165,
+          "p50": 32.165,
+          "p90": 34.713,
+          "p95": 48.621,
+          "p99": 63.29,
+          "min": 3.037,
+          "max": 64.102,
+          "std": 8.409
+        },
+        "sample_delivery_age": "TRUE SOURCE/SENSOR TIMESTAMP NOT OBSERVABLE THROUGH THIS API",
+        "cpu_percent": 0.0
+      }
+    },
+    {
+      "candidate": "D_WINRT_MEDIA_FRAME_READER",
+      "trial": 2,
+      "status": "PASS",
+      "startup": {
+        "open_ms": 38.51,
+        "config_ms": 0.94,
+        "first_frame_ms": 524.29,
+        "total_startup_ms": 589.3
+      },
+      "negotiated": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "NV12"
+      },
+      "stream": {
+        "effective_fps": 30.11,
+        "frame_interval_ms": {
+          "samples": 100,
+          "mean": 32.799,
+          "median": 32.004,
+          "p50": 32.004,
+          "p90": 32.199,
+          "p95": 33.02,
+          "p99": 47.91,
+          "min": 31.754,
+          "max": 47.953,
+          "std": 3.462
+        },
+        "hardware_sample_delivery_age_ms": {
+          "samples": 100,
+          "mean": 42.849,
+          "median": 42.722,
+          "p50": 42.722,
+          "p90": 49.408,
+          "p95": 49.964,
+          "p99": 63.465,
+          "min": 34.902,
+          "max": 64.233,
+          "std": 5.614
+        },
+        "cpu_percent": 0.0
+      }
+    },
+    {
+      "candidate": "E_OPENCV_MSMF_THREADED",
+      "trial": 2,
+      "status": "PASS",
+      "startup": {
+        "total_startup_ms": 7757.44
+      },
+      "negotiated": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "RGB24"
+      },
+      "stream": {
+        "effective_fps": 32.71,
+        "duplicate_rate_pct": 10.0,
+        "slot_age_ms": {
+          "samples": 100,
+          "mean": 17.893,
+          "median": 16.397,
+          "p50": 16.397,
+          "p90": 30.26,
+          "p95": 36.979,
+          "p99": 61.173,
+          "min": 0.028,
+          "max": 61.601,
+          "std": 12.405
+        },
+        "frame_interval_ms": {
+          "samples": 100,
+          "mean": 30.267,
+          "median": 30.539,
+          "p50": 30.539,
+          "p90": 30.809,
+          "p95": 30.938,
+          "p99": 31.451,
+          "min": 0.003,
+          "max": 31.52,
+          "std": 3.052
+        },
+        "cpu_percent": 0.0
+      }
+    },
+    {
+      "candidate": "A_OPENCV_MSMF_CONSTRUCTOR",
+      "trial": 3,
+      "status": "PASS",
+      "startup": {
+        "open_ms": 7170.44,
+        "config_ms": 0.0,
+        "first_frame_ms": 584.99,
+        "total_startup_ms": 7755.43
+      },
+      "negotiated": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "RGB24 (MSMF default)"
+      },
+      "stream": {
+        "effective_fps": 30.08,
+        "frame_interval_ms": {
+          "samples": 100,
+          "mean": 33.243,
+          "median": 32.189,
+          "p50": 32.189,
+          "p90": 35.169,
+          "p95": 48.545,
+          "p99": 64.376,
+          "min": 2.845,
+          "max": 64.626,
+          "std": 8.593
+        },
+        "read_duration_ms": {
+          "samples": 100,
+          "mean": 33.237,
+          "median": 32.183,
+          "p50": 32.183,
+          "p90": 35.163,
+          "p95": 48.54,
+          "p99": 64.37,
+          "min": 2.84,
+          "max": 64.621,
+          "std": 8.594
+        },
+        "sample_delivery_age": "TRUE SOURCE/SENSOR TIMESTAMP NOT OBSERVABLE THROUGH THIS API",
+        "cpu_percent": 23.5
+      }
+    },
+    {
+      "candidate": "B_OPENCV_MSMF_SEQUENTIAL",
+      "trial": 3,
+      "status": "PASS",
+      "startup": {
+        "open_ms": 1857.2,
+        "config_ms": 5195.93,
+        "first_frame_ms": 581.22,
+        "total_startup_ms": 7634.35
+      },
+      "negotiated": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "RGB24 (MSMF default)"
+      },
+      "stream": {
+        "effective_fps": 30.08,
+        "frame_interval_ms": {
+          "samples": 100,
+          "mean": 33.249,
+          "median": 32.114,
+          "p50": 32.114,
+          "p90": 35.037,
+          "p95": 48.516,
+          "p99": 63.852,
+          "min": 2.757,
+          "max": 64.082,
+          "std": 8.578
+        },
+        "read_duration_ms": {
+          "samples": 100,
+          "mean": 33.244,
+          "median": 32.108,
+          "p50": 32.108,
+          "p90": 35.03,
+          "p95": 48.512,
+          "p99": 63.847,
+          "min": 2.751,
+          "max": 64.077,
+          "std": 8.578
+        },
+        "sample_delivery_age": "TRUE SOURCE/SENSOR TIMESTAMP NOT OBSERVABLE THROUGH THIS API",
+        "cpu_percent": 0.0
+      }
+    },
+    {
+      "candidate": "D_WINRT_MEDIA_FRAME_READER",
+      "trial": 3,
+      "status": "PASS",
+      "startup": {
+        "open_ms": 43.22,
+        "config_ms": 1.13,
+        "first_frame_ms": 531.11,
+        "total_startup_ms": 601.91
+      },
+      "negotiated": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "NV12"
+      },
+      "stream": {
+        "effective_fps": 30.09,
+        "frame_interval_ms": {
+          "samples": 100,
+          "mean": 32.799,
+          "median": 32.009,
+          "p50": 32.009,
+          "p90": 32.148,
+          "p95": 33.014,
+          "p99": 47.909,
+          "min": 31.79,
+          "max": 48.112,
+          "std": 3.466
+        },
+        "hardware_sample_delivery_age_ms": {
+          "samples": 100,
+          "mean": 43.86,
+          "median": 43.684,
+          "p50": 43.684,
+          "p90": 49.661,
+          "p95": 50.691,
+          "p99": 56.888,
+          "min": 34.815,
+          "max": 62.526,
+          "std": 4.994
+        },
+        "cpu_percent": 0.0
+      }
+    },
+    {
+      "candidate": "E_OPENCV_MSMF_THREADED",
+      "trial": 3,
+      "status": "PASS",
+      "startup": {
+        "total_startup_ms": 7695.56
+      },
+      "negotiated": {
+        "width": 1280,
+        "height": 720,
+        "fps": 30.0,
+        "subtype": "RGB24"
+      },
+      "stream": {
+        "effective_fps": 32.72,
+        "duplicate_rate_pct": 10.0,
+        "slot_age_ms": {
+          "samples": 100,
+          "mean": 17.937,
+          "median": 16.86,
+          "p50": 16.86,
+          "p90": 30.159,
+          "p95": 33.835,
+          "p99": 50.843,
+          "min": 0.91,
+          "max": 60.23,
+          "std": 11.492
+        },
+        "frame_interval_ms": {
+          "samples": 100,
+          "mean": 30.254,
+          "median": 30.539,
+          "p50": 30.539,
+          "p90": 30.782,
+          "p95": 30.833,
+          "p99": 31.145,
+          "min": 0.002,
+          "max": 31.172,
+          "std": 3.046
+        },
+        "cpu_percent": 0.0
+      }
+    },
+    {
+      "candidate": "C_OPENCV_MSMF_FOURCC",
+      "trial": 1,
+      "status": "TESTED",
+      "formats_tested": {
+        "MJPG": {
+          "set_returned": false,
+          "get_fourcc": 22.0,
+          "honored": false
+        },
+        "YUY2": {
+          "set_returned": false,
+          "get_fourcc": 22.0,
+          "honored": false
+        },
+        "NV12": {
+          "set_returned": false,
+          "get_fourcc": 22.0,
+          "honored": false
+        }
+      },
+      "verdict": "OpenCV MSMF rejects dynamic FOURCC property changes; maintains default RGB24 source reader pipeline."
+    }
+  ]
+}

@@ -20,6 +20,8 @@ class CameraConfig:
     width: int = 1280
     height: int = 720
     fps: int = 30
+    backend: str = "AUTO"  # "AUTO", "WINRT", "MSMF"
+    force_winrt_init_failure: bool = False
 
 
 @dataclass(frozen=True)

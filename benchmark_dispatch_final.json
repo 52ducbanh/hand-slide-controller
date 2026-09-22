@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "n_trials": 2000,
+    "keys_tested": [
+      "left",
+      "right",
+      "b"
+    ],
+    "evidence_type": "EXPERIMENTAL_MEASURED",
+    "receiver": "NOT AVAILABLE \u2014 headless agent session (CreateWindowExW returns 0, no shell HWND)",
+    "measurement": "Call duration only (press() call start to return). OS scheduling delay to target window NOT measured.",
+    "limitation": "WM_KEYDOWN receive latency PENDING_MANUAL_VALIDATION on interactive session."
+  },
+  "pyautogui": {
+    "call_latency": {
+      "n": 2000,
+      "mean_us": 20.08,
+      "p50_us": 6.6,
+      "p90_us": 41.4,
+      "p95_us": 84.2,
+      "p99_us": 174.5,
+      "min_us": 5.5,
+      "max_us": 1290.8,
+      "std_us": 48.91
+    },
+    "failures": 0
+  },
+  "sendinput": {
+    "call_latency": {
+      "n": 2000,
+      "mean_us": 9.97,
+      "p50_us": 1.7,
+      "p90_us": 25.0,
+      "p95_us": 50.3,
+      "p99_us": 140.7,
+      "min_us": 1.4,
+      "max_us": 262.1,
+      "std_us": 26.53
+    },
+    "failures": 0
+  }
+}

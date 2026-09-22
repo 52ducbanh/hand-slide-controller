@@ -1,0 +1,114 @@
+{
+  "metadata": {
+    "test_type": "PRODUCTION_V3_ACCURACY_GATE",
+    "date": "2026-09-22 12:05:42",
+    "device": "Webcam 0 (1280x720 @ 30 FPS, WinRT Backend)"
+  },
+  "deterministic_video_accuracy": {
+    "status": "PASS",
+    "validation_source": "DETERMINISTIC_RECORDED_VIDEO (benchmark_input.mp4)",
+    "frames_evaluated": 800,
+    "actions_dispatched": [
+      {
+        "frame": 104,
+        "action": "NEXT",
+        "time_sec": 3.47
+      },
+      {
+        "frame": 304,
+        "action": "NEXT",
+        "time_sec": 10.13
+      },
+      {
+        "frame": 582,
+        "action": "PREVIOUS",
+        "time_sec": 19.4
+      },
+      {
+        "frame": 609,
+        "action": "PREVIOUS",
+        "time_sec": 20.3
+      }
+    ],
+    "ground_truth_matched": true,
+    "two_hand_tracking": {
+      "two_hand_frames": 115,
+      "one_hand_frames": 358,
+      "zero_hand_frames": 327,
+      "max_simultaneous_hands": 2
+    }
+  },
+  "live_physical_camera_validation": {
+    "status": "PASS",
+    "backend": "WINRT (Physical Device 0)",
+    "frames_evaluated": 146,
+    "two_hand_pipeline_ready": true,
+    "num_hands_capacity": 2
+  },
+  "interactive_human_validation": {
+    "protocol_version": "1.0",
+    "status": "MANUAL VALIDATION PENDING (Automated execution without physical human operator)",
+    "scenarios": [
+      {
+        "id": "HUMAN_01",
+        "name": "30 LIKE Gestures (Thumb Up)",
+        "target_count": 30,
+        "status": "MANUAL VALIDATION PENDING"
+      },
+      {
+        "id": "HUMAN_02",
+        "name": "30 SCISSORS Gestures (Peace)",
+        "target_count": 30,
+        "status": "MANUAL VALIDATION PENDING"
+      },
+      {
+        "id": "HUMAN_03",
+        "name": "30 BLACKOUT Gestures (Open Palm)",
+        "target_count": 30,
+        "status": "MANUAL VALIDATION PENDING"
+      },
+      {
+        "id": "HUMAN_04",
+        "name": "2 Hands Simultaneously in Frame",
+        "target_count": 30,
+        "status": "MANUAL VALIDATION PENDING"
+      },
+      {
+        "id": "HUMAN_05",
+        "name": "Crossing Hands Left-Over-Right",
+        "target_count": 15,
+        "status": "MANUAL VALIDATION PENDING"
+      },
+      {
+        "id": "HUMAN_06",
+        "name": "Fast Hand Entry (< 100ms)",
+        "target_count": 15,
+        "status": "MANUAL VALIDATION PENDING"
+      },
+      {
+        "id": "HUMAN_07",
+        "name": "Fast Hand Exit (< 100ms)",
+        "target_count": 15,
+        "status": "MANUAL VALIDATION PENDING"
+      },
+      {
+        "id": "HUMAN_08",
+        "name": "Far Hand (> 2.0 meters)",
+        "target_count": 15,
+        "status": "MANUAL VALIDATION PENDING"
+      },
+      {
+        "id": "HUMAN_09",
+        "name": "Near Hand (< 0.4 meters)",
+        "target_count": 15,
+        "status": "MANUAL VALIDATION PENDING"
+      },
+      {
+        "id": "HUMAN_10",
+        "name": "Partial Occlusion (Edge of Frame)",
+        "target_count": 15,
+        "status": "MANUAL VALIDATION PENDING"
+      }
+    ]
+  }
+}

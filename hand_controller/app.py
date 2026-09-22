@@ -25,6 +25,7 @@ from .tracker import HandTracker
 from .state_machine import GestureStateMachine
 from .actions import ActionDispatcher
 from .renderer import Renderer
+from .camera import CameraSource, CameraFrame, create_camera_source
 
 
 _BaseOptions = mp.tasks.BaseOptions
@@ -219,10 +220,7 @@ class App:
             self._latest_render_snapshot = snapshot
 
     def run(self) -> None:
-        cap = self._setup_camera()
-        if not cap.isOpened():
-            print("Cannot open camera")
-            return
+        camera = self._setup_camera()
 
         options = self._build_landmarker_options()
         mode = self._cfg.running_mode.upper()
@@ -250,7 +248,6 @@ class App:
                 last_timestamp_ms = -1
                 last_processed_ms = -1
                 fps_history: deque[float] = deque(maxlen=20)
-                rgb_buf: np.ndarray | None = None
                 detections: list[HandDetection] = []
                 detection_track_map: dict[int, int] = {}
 
@@ -261,23 +258,17 @@ class App:
                         elif not _user32.IsWindow(hwnd):
                             break
 
-                    capture_time = time.perf_counter()
-                    success, frame = cap.read()
-                    if not success:
-                        print("Cannot read from camera")
-                        break
+                    success, cam_frame = camera.read_latest(timeout_sec=0.05)
+                    if not success or cam_frame is None:
+                        continue
 
-                    cv2.flip(frame, 1, dst=frame)
-
+                    capture_time = cam_frame.capture_time
                     now = time.time()
                     fps_history.append(now)
                     dt = fps_history[-1] - fps_history[0]
                     fps = (len(fps_history) - 1) / dt if len(fps_history) > 1 and dt > 0 else 30.0
 
-                    if rgb_buf is None or rgb_buf.shape != frame.shape:
-                        rgb_buf = np.empty_like(frame)
-                    cv2.cvtColor(frame, cv2.COLOR_BGR2RGB, dst=rgb_buf)
-                    mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb_buf)
+                    mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=cam_frame.image_rgb)
 
                     # Strictly monotonic timestamp enforcement
                     now_ms = time.monotonic_ns() // 1_000_000
@@ -362,13 +353,14 @@ class App:
 
                     if self._cfg.preview_enabled:
                         if not is_minimized:
+                            display_frame = cv2.cvtColor(cam_frame.image_rgb, cv2.COLOR_RGB2BGR)
                             if is_worker:
                                 with self._render_lock:
                                     snapshot = self._latest_render_snapshot
-                                self._renderer.draw_snapshot(frame, snapshot, now, fps=fps)
+                                self._renderer.draw_snapshot(display_frame, snapshot, now, fps=fps)
                             else:
                                 self._renderer.draw_frame(
-                                    frame,
+                                    display_frame,
                                     self._tracker.tracks,
                                     detection_track_map,
                                     detections,
@@ -376,7 +368,7 @@ class App:
                                     now,
                                     fps=fps,
                                 )
-                            cv2.imshow(WIN_NAME, frame)
+                            cv2.imshow(WIN_NAME, display_frame)
 
                         key = cv2.waitKey(1) & 0xFF
                         if key == ord("q"):
@@ -398,7 +390,7 @@ class App:
                 if self._control_thread.is_alive():
                     print("CRITICAL: Control worker thread failed to terminate cleanly within timeout!", file=sys.stderr)
 
-            cap.release()
+            camera.close()
             if self._cfg.preview_enabled:
                 cv2.destroyAllWindows()
 
@@ -436,53 +428,11 @@ class App:
 
         return detections
 
-    def _setup_camera(self) -> cv2.VideoCapture:
-        cfg = self._cfg.camera
-        cap: cv2.VideoCapture | None = None
-
-        # A1: Fast direct constructor parameter initialization
-        try:
-            params = [
-                cv2.CAP_PROP_FRAME_WIDTH, cfg.width,
-                cv2.CAP_PROP_FRAME_HEIGHT, cfg.height,
-                cv2.CAP_PROP_FPS, cfg.fps,
-            ]
-            cap = cv2.VideoCapture(cfg.index, cv2.CAP_MSMF, params)
-            if not cap.isOpened():
-                cap.release()
-                cap = None
-        except Exception:
-            if cap is not None:
-                cap.release()
-            cap = None
-
-        # Fallback to standard sequential property configuration if constructor params failed
-        if cap is None or not cap.isOpened():
-            cap = cv2.VideoCapture(cfg.index, cv2.CAP_MSMF)
-            if cap.isOpened():
-                cap.set(cv2.CAP_PROP_FRAME_WIDTH, cfg.width)
-                cap.set(cv2.CAP_PROP_FRAME_HEIGHT, cfg.height)
-                cap.set(cv2.CAP_PROP_FPS, cfg.fps)
-
-        if not cap.isOpened():
-            raise RuntimeError(f"Cannot open camera index {cfg.index} via MSMF")
-
-        # Verify actual camera properties
-        actual_w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        actual_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        actual_fps = cap.get(cv2.CAP_PROP_FPS)
-
-        # Safety fallback if constructor did not negotiate requested resolution
-        if actual_w != cfg.width or actual_h != cfg.height:
-            cap.set(cv2.CAP_PROP_FRAME_WIDTH, cfg.width)
-            cap.set(cv2.CAP_PROP_FRAME_HEIGHT, cfg.height)
-            cap.set(cv2.CAP_PROP_FPS, cfg.fps)
-            actual_w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-            actual_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-            actual_fps = cap.get(cv2.CAP_PROP_FPS)
-
-        print(f"Camera: {actual_w}x{actual_h} @ {actual_fps:.1f} FPS")
-        return cap
+    def _setup_camera(self) -> CameraSource:
+        return create_camera_source(
+            self._cfg.camera,
+            force_winrt_failure=self._cfg.camera.force_winrt_init_failure,
+        )
 
     @staticmethod
     def _set_process_priority() -> None:
