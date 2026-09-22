@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0",
+  "evidence_type": "PRODUCTION_MEASURED",
+  "generated": "2026-09-22",
+  "baseline_commit": "d4e8d5708bc3dac10b2b388617170c29f993b4e8",
+
+  "production_features": {
+    "camera_backend_winrt": {
+      "description": "WinRT MediaCapture + MediaFrameReader AcquisitionMode.Realtime as primary camera source",
+      "status": "SUPPORTED_PRODUCTION",
+      "config_field": "camera.backend = AUTO or WINRT",
+      "code_path": "hand_controller/camera.py :: WinRTCameraSource",
+      "dependency": "winrt-runtime + winrt-Windows.* packages",
+      "removal_impact": "BREAKS WINRT CAMERA PATH"
+    },
+    "camera_backend_msmf_fallback": {
+      "description": "OpenCV MSMF fallback when WinRT unavailable or forced",
+      "status": "SUPPORTED_PRODUCTION",
+      "config_field": "camera.backend = MSMF or AUTO with WinRT failure",
+      "code_path": "hand_controller/camera.py :: OpenCVMSMFCameraSource",
+      "dependency": "opencv-python (cv2.CAP_MSMF)",
+      "removal_impact": "BREAKS FALLBACK PATH"
+    },
+    "camera_resolution_1280x720": {
+      "description": "1280x720 @ 30 FPS camera capture",
+      "status": "SUPPORTED_PRODUCTION",
+      "config_field": "camera.width=1280 camera.height=720 camera.fps=30",
+      "code_path": "hand_controller/camera.py",
+      "dependency": "WinRT or MSMF",
+      "removal_impact": "BREAKS CAMERA RESOLUTION"
+    },
+    "num_hands_2": {
+      "description": "Detect and track up to 2 hands simultaneously",
+      "status": "SUPPORTED_PRODUCTION",
+      "config_field": "num_hands=2",
+      "code_path": "hand_controller/app.py :: _build_landmarker_options",
+      "dependency": "mediapipe hand_landmarker.task",
+      "removal_impact": "BREAKS TWO-HAND DETECTION"
+    },
+    "gesture_like": {
+      "description": "LIKE gesture (thumbs up) triggers NEXT slide (RIGHT ARROW)",
+      "status": "SUPPORTED_PRODUCTION",
+      "code_path": "hand_controller/gestures.py :: _classify_like",
+      "dependency": "mediapipe + gesture recognizer",
+      "removal_impact": "BREAKS SLIDE NAVIGATION"
+    },
+    "gesture_scissors": {
+      "description": "SCISSORS gesture (V/peace sign) triggers PREVIOUS slide (LEFT ARROW)",
+      "status": "SUPPORTED_PRODUCTION",
+      "code_path": "hand_controller/gestures.py :: _classify_scissors",
+      "dependency": "mediapipe + gesture recognizer",
+      "removal_impact": "BREAKS SLIDE NAVIGATION"
+    },
+    "gesture_blackout": {
+      "description": "OPEN PALM gesture triggers blackout (B key)",
+      "status": "SUPPORTED_PRODUCTION",
+      "code_path": "hand_controller/gestures.py :: _classify_open",
+      "dependency": "mediapipe + gesture recognizer",
+      "removal_impact": "BREAKS BLACKOUT ACTION"
+    },
+    "keyboard_action_dispatch": {
+      "description": "Dispatch keyboard events (LEFT, RIGHT, B) to active application",
+      "status": "SUPPORTED_PRODUCTION",
+      "config_field": "N/A (always on)",
+      "code_path": "hand_controller/actions.py :: ActionDispatcher.dispatch",
+      "dependency": "ctypes (user32.SendInput native Win32)",
+      "removal_impact": "BREAKS ALL KEYBOARD ACTIONS"
+    },
+    "preview_window": {
+      "description": "OpenCV imshow preview window with landmark overlay",
+      "status": "SUPPORTED_PRODUCTION",
+      "config_field": "preview_enabled=True (default)",
+      "code_path": "hand_controller/app.py, hand_controller/renderer.py",
+      "dependency": "opencv-python (cv2.imshow, cv2.waitKey) + numpy",
+      "removal_impact": "BREAKS VISUAL PREVIEW"
+    },
+    "clean_shutdown": {
+      "description": "Deterministic shutdown: stop_event + thread join + camera.close()",
+      "status": "SUPPORTED_PRODUCTION",
+      "code_path": "hand_controller/app.py :: run() finally block",
+      "dependency": "threading",
+      "removal_impact": "BREAKS CLEAN SHUTDOWN"
+    },
+    "live_stream_worker_mode": {
+      "description": "LIVE_STREAM_WORKER: event-driven control thread, MediaPipe async callback",
+      "status": "SUPPORTED_PRODUCTION",
+      "config_field": "running_mode=LIVE_STREAM_WORKER",
+      "code_path": "hand_controller/app.py",
+      "dependency": "mediapipe LIVE_STREAM mode",
+      "removal_impact": "BREAKS ASYNC ARCHITECTURE"
+    },
+    "audio_feedback": {
+      "description": "Optional audio beep on gesture action via winsound or sounddevice",
+      "status": "CONFIGURABLE_BUT_DEFAULT_OFF",
+      "config_field": "audio_feedback=False (default)",
+      "code_path": "hand_controller/actions.py :: _play_feedback_sound",
+      "dependency": "winsound (stdlib) is primary; sounddevice is a venv package but NOT directly imported in production code",
+      "analysis": "Production code uses 'import winsound' (stdlib, always available) inside _play_feedback_sound. sounddevice is pulled into venv by mediapipe.tasks.python.audio.core.audio_record — NOT by hand_controller. winsound handles the feature. sounddevice is NOT a dependency of the audio_feedback feature.",
+      "verdict": "audio_feedback IS A SUPPORTED PRODUCTION FEATURE via winsound (stdlib). sounddevice is NOT required for this feature. sounddevice enters dist only because mediapipe bundles audio_record module which imports it."
+    },
+    "process_priority_above_normal": {
+      "description": "Set Windows process priority to ABOVE_NORMAL via psutil",
+      "status": "SUPPORTED_PRODUCTION",
+      "config_field": "N/A (always attempted at startup)",
+      "code_path": "hand_controller/app.py :: _set_process_priority",
+      "dependency": "psutil (lazy import, falls back gracefully)",
+      "removal_impact": "DEGRADES REALTIME PERFORMANCE (non-fatal)"
+    }
+  },
+
+  "non_production_features": {
+    "mouseinfo_pyscreeze": {
+      "description": "PyAutoGUI sub-packages for mouse info and screen capture",
+      "status": "NOT_USED_IN_PRODUCTION",
+      "pulled_by": "pyautogui package declares them as dependencies",
+      "analysis": "Production only calls pyautogui.press(). mouseinfo and pyscreeze are never called. mouseinfo imports PIL and matplotlib."
+    },
+    "sounddevice_standalone": {
+      "description": "sounddevice package",
+      "status": "NOT_A_PRODUCTION_DEPENDENCY",
+      "pulled_by": "mediapipe.tasks.python.audio.core.audio_record",
+      "analysis": "audio_record.py is part of MediaPipe audio tasks (speech, etc.). Hand Slide Controller uses hand landmarker only, not audio tasks. sounddevice is an indirect transitive MediaPipe dep, NOT needed by hand_controller."
+    }
+  }
+}

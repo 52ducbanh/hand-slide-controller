@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "generated": "2026-09-22T11:55:00+07:00",
+  "machine": "12th Gen Intel Core i5-12450H | Windows 11 | RTX 4050 Laptop GPU",
+  "candidates": [
+    {
+      "candidate": "camera_backend_winrt",
+      "baseline": "OpenCV MSMF (jitter std=18.52ms, frame delivery age ~68.59ms, startup 1261ms)",
+      "measured_result": "WinRT MediaCapture Realtime (jitter std=0.27ms, frame delivery age ~35.15ms, startup 738ms)",
+      "delta": "-33.44ms delivery age, -98.5% jitter, -523ms startup",
+      "evidence_type": "PRODUCTION_MEASURED",
+      "gate": "Startup <= 1261ms, Jitter < 5ms, Invariants 0 violations",
+      "verdict": "ACCEPTED",
+      "reason": "WinRT MediaFrameReader Realtime provides hardware-direct NV12 frames with ultra-low jitter (0.27ms) and 0 violations across 864 frames.",
+      "commit_if_accepted": "d4e8d5708bc3dac10b2b388617170c29f993b4e8"
+    },
+    {
+      "candidate": "package_opencv_standard",
+      "baseline": "opencv-contrib-python 5.0.0.93 (cv2.pyd 107.67 MB, total dist 296.19 MB)",
+      "measured_result": "opencv-python 5.0.0.93 standard (cv2.pyd 82.30 MB, total dist 258.68 MB)",
+      "delta": "-25.37 MB cv2.pyd (-23.6%), -37.51 MB total dist (-12.7%)",
+      "evidence_type": "PRODUCTION_MEASURED",
+      "gate": ">= 10 MB or >= 5% reduction, 58/58 tests pass, camera/inference preserved",
+      "verdict": "ACCEPTED",
+      "reason": "Production code uses zero opencv-contrib modules (only standard VideoCapture, cvtColor, flip, imshow). Standard OpenCV preserves 100% functionality with 0 regressions across 58 tests.",
+      "commit_if_accepted": "PENDING_COMMIT"
+    },
+    {
+      "candidate": "action_dispatch_sendinput",
+      "baseline": "PyAutoGUI PAUSE=0 (call mean=20.08us, P50=6.6us, P99=174.5us, max=1290.8us; bundles 6 packages)",
+      "measured_result": "Native Win32 user32.SendInput via ctypes (call mean=9.97us, P50=1.7us, P99=140.7us, max=262.1us; stdlib only)",
+      "delta": "-4.9us P50 (-74%), -1028us max jitter (-80%), removes 6 external packages (pyautogui, mouseinfo, pymsgbox, pyscreeze, pytweening, pygetwindow)",
+      "evidence_type": "EXPERIMENTAL_MEASURED",
+      "gate": "Multi-objective: functional equivalence PASS, 0 latency regression, 100% key delivery, tests PASS, dependency simplification",
+      "verdict": "ACCEPTED",
+      "reason": "Native Win32 SendInput eliminates 6 third-party packages, prevents FailSafeException on corner cursor positions, improves dispatch call P50 by 3.8x, and passes all 58 unit tests.",
+      "commit_if_accepted": "PENDING_COMMIT"
+    },
+    {
+      "candidate": "package_sounddevice_exclusion",
+      "baseline": "sounddevice + _sounddevice_data bundled (3.88 MB in dist)",
+      "measured_result": "Excluded via PyInstaller spec; audio feedback uses stdlib winsound (PlaySound / MessageBeep)",
+      "delta": "-3.88 MB distribution reduction",
+      "evidence_type": "PRODUCTION_MEASURED",
+      "gate": "Audio feedback feature preserved, no runtime crash",
+      "verdict": "ACCEPTED",
+      "reason": "Production code uses stdlib winsound for audio feedback. sounddevice was pulled in solely by mediapipe audio tasks which are never imported.",
+      "commit_if_accepted": "PENDING_COMMIT"
+    },
+    {
+      "candidate": "package_tkinter_exclusion",
+      "baseline": "_tkinter, tcl86t.dll, tk86t.dll, _tcl_data, _tk_data bundled (5.32 MB in dist)",
+      "measured_result": "Excluded via PyInstaller spec; OpenCV highgui handles all preview window rendering",
+      "delta": "-5.32 MB distribution reduction, -940 files in dist",
+      "evidence_type": "PRODUCTION_MEASURED",
+      "gate": "Preview window works, clean shutdown, no missing module errors",
+      "verdict": "ACCEPTED",
+      "reason": "No production feature uses Tkinter. Elimination of PyAutoGUI removes the only transitive importer (mouseinfo/pymsgbox).",
+      "commit_if_accepted": "PENDING_COMMIT"
+    },
+    {
+      "candidate": "package_matplotlib_exclusion",
+      "baseline": "matplotlib bundled (13.91 MB in dist)",
+      "measured_result": "Crash on import: ModuleNotFoundError: No module named 'matplotlib.pyplot'",
+      "delta": "0 MB (cannot remove)",
+      "evidence_type": "EXPERIMENTAL_MEASURED",
+      "gate": "Packaged executable must launch without errors",
+      "verdict": "REJECTED_REGRESSION",
+      "reason": "mediapipe.tasks.python.vision.drawing_styles unconditionally imports matplotlib.pyplot at top-level. Excluding matplotlib breaks import mediapipe immediately.",
+      "commit_if_accepted": "N/A"
+    },
+    {
+      "candidate": "package_pillow_codecs_exclusion",
+      "baseline": "_avif.cp312-win_amd64.pyd (7.53 MB) and _webp.cp312-win_amd64.pyd (0.46 MB) bundled in PIL",
+      "measured_result": "PIL core is required by mediapipe drawing utilities; sub-codecs are compiled C extensions inside PIL directory",
+      "delta": "Trimming individual C-extension DLLs inside PIL requires post-build hook; PIL itself must remain",
+      "evidence_type": "EXPERIMENTAL_MEASURED",
+      "gate": ">= 10 MB or >= 5% reduction without post-build fragile file deletion",
+      "verdict": "DEFERRED_LOW_ROI",
+      "reason": "PIL is required by mediapipe. Individual codec removal yields < 8 MB and creates PyInstaller hook fragility.",
+      "commit_if_accepted": "N/A"
+    },
+    {
+      "candidate": "package_openssl_crypto_exclusion",
+      "baseline": "libcrypto-3.dll (4.99 MB) and libssl-3.dll (0.76 MB) bundled",
+      "measured_result": "Standard Python 3.12 DLL dependencies",
+      "delta": "< 6 MB with high risk of breaking hashlib/ssl in stdlib",
+      "evidence_type": "EXPERIMENTAL_MEASURED",
+      "gate": "No stdlib breakage, verified runtime safety",
+      "verdict": "REJECTED_REGRESSION",
+      "reason": "Core Python runtime links to crypto/ssl. Removing them breaks standard library modules.",
+      "commit_if_accepted": "N/A"
+    },
+    {
+      "candidate": "cpu_inference_model_variants",
+      "baseline": "hand_landmarker.task (7.46 MB, SHA256: fbc2a300..., Submit->Callback steady P50=24.85ms, recall=99.0%)",
+      "measured_result": "No official lighter MediaPipe HandLandmarker task bundle exists from Google with equivalent 21-landmark 3D mesh",
+      "delta": "0 ms",
+      "evidence_type": "EXTERNAL_RESEARCH",
+      "gate": "P50 saving >= 2ms, recall >= 95%, 0 false triggers",
+      "verdict": "REJECTED_NO_BENEFIT",
+      "reason": "NO ACTIONABLE CPU INFERENCE CANDIDATE exists that maintains 99% two-hand detection recall.",
+      "commit_if_accepted": "N/A"
+    },
+    {
+      "candidate": "mediapipe_gpu_tasks",
+      "baseline": "MediaPipe Tasks CPU (24.85ms steady callback)",
+      "measured_result": "NotImplementedError: GPU processing is disabled in build flags",
+      "delta": "N/A (runtime exception)",
+      "evidence_type": "EXPERIMENTAL_MEASURED",
+      "gate": "Functional on Windows native",
+      "verdict": "NOT_FEASIBLE",
+      "reason": "Official Google MediaPipe Windows Python wheels are compiled without GPU Graph Calculators. GPU delegate is Ubuntu-only.",
+      "commit_if_accepted": "N/A"
+    },
+    {
+      "candidate": "litert_windows_gpu",
+      "baseline": "MediaPipe Tasks CPU",
+      "measured_result": "No Windows GPU delegate Python wheel available for LiteRT on Windows",
+      "delta": "N/A",
+      "evidence_type": "EXTERNAL_RESEARCH",
+      "gate": "Functional Python runtime on Windows",
+      "verdict": "NOT_FEASIBLE",
+      "reason": "Current environment/runtime has no usable compatible Windows execution path for LiteRT GPU delegate.",
+      "commit_if_accepted": "N/A"
+    },
+    {
+      "candidate": "onnx_runtime_cuda_directml",
+      "baseline": "MediaPipe Tasks C++ CPU pipeline",
+      "measured_result": "Theoretical pipeline re-implementation: requires hand detector + 2x landmark detector + NMS + crop/warp + tracking in Python",
+      "delta": "Estimated pipeline overhead > 5ms, distribution bloat > 150 MB (CUDA/DirectML DLLs)",
+      "evidence_type": "DERIVED",
+      "gate": "E2E latency saving >= 5ms, package size preserved",
+      "verdict": "DEFERRED_LOW_ROI",
+      "reason": "DEFERRED — LOW EXPECTED ROI / REQUIRES FULL PIPELINE REIMPLEMENTATION. Model execution is only a fraction of MediaPipe's optimized C++ tracking graph.",
+      "commit_if_accepted": "N/A"
+    },
+    {
+      "candidate": "live_human_gesture_accuracy",
+      "baseline": "Deterministic video 800 frames: 4/4 actions, 99.0% recall, 0 false triggers",
+      "measured_result": "30 LIKE, 30 SCISSORS, 30 BLACKOUT, crossing, fast/slow protocol codified in exp_live_gesture_harness.py",
+      "delta": "Requires human presenter in camera field of view",
+      "evidence_type": "PENDING_MANUAL_VALIDATION",
+      "gate": ">= 95% per gesture across 30 trials in normal lighting",
+      "verdict": "PENDING_MANUAL_VALIDATION",
+      "reason": "Agent environment cannot provide a living physical presenter. Protocol is codified and automated verification confirms 100% code readiness.",
+      "commit_if_accepted": "N/A"
+    }
+  ]
+}

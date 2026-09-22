@@ -1,0 +1,563 @@
+path,size_bytes,size_mb,origin_package,imported_by,runtime_required,feature_required,candidate_for_removal,evidence
+_internal\cv2\cv2.pyd,86293504,82.2959,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\mediapipe\tasks\c\libmediapipe.dll,55239680,52.6807,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\cv2\opencv_videoio_ffmpeg500_64.dll,30876160,29.4458,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\numpy.libs\libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll,20589056,19.6353,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+HandSlideController.exe,8873184,8.4621,LAUNCHER,INTERNAL,YES,YES,NO,Core runtime
+_internal\PIL\_avif.cp312-win_amd64.pyd,7893504,7.5278,PIL.codecs,PIL.features,NO,NO,YES,Optional image codecs not needed for runtime RGB processing
+_internal\hand_landmarker.task,7819105,7.4569,model_asset,hand_controller.config,YES,YES,NO,Official Google MediaPipe Hand Landmarker neural network bundle
+_internal\python312.dll,6945272,6.6235,python312.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\libcrypto-3.dll,5231472,4.9891,openssl,python_ssl,CONDITIONAL,NO,CONDITIONAL,"SSL/crypto library for network HTTPS, offline app"
+_internal\numpy\_core\_multiarray_umath.cp312-win_amd64.pyd,3854848,3.6763,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\PIL\_imaging.cp312-win_amd64.pyd,2632704,2.5107,PIL,INTERNAL,YES,YES,NO,Core runtime
+_internal\matplotlib\ft2font.cp312-win_amd64.pyd,2323968,2.2163,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe-1.0.1.dist-info\licenses\NOTICE,1569742,1.497,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\ucrtbase.dll,1361464,1.2984,ucrtbase.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\base_library.zip,1333717,1.2719,base_library.zip,INTERNAL,YES,YES,NO,Core runtime
+_internal\unicodedata.pyd,1140592,1.0878,unicodedata.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\winrt\_winrt_windows_media_capture.cp312-win_amd64.pyd,973824,0.9287,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\libssl-3.dll,794992,0.7582,openssl,python_ssl,CONDITIONAL,NO,CONDITIONAL,"SSL/crypto library for network HTTPS, offline app"
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSans.ttf,756072,0.721,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSans-Bold.ttf,704128,0.6715,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\metadata\schema_py_generated.py,676265,0.6449,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSans-BoldOblique.ttf,641720,0.612,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSans-Oblique.ttf,633840,0.6045,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\numpy\random\_generator.cp312-win_amd64.pyd,624640,0.5957,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\_qhull.cp312-win_amd64.pyd,617472,0.5889,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\numpy.libs\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll,575056,0.5484,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\winrt\msvcp140.dll,567352,0.5411,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\fonts\ttf\LastResortHE-Regular.ttf,564228,0.5381,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\numpy\random\mtrand.cp312-win_amd64.pyd,522752,0.4985,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\backends\_backend_agg.cp312-win_amd64.pyd,489984,0.4673,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\contourpy\_contourpy.cp312-win_amd64.pyd,487936,0.4653,contourpy,INTERNAL,YES,YES,NO,Core runtime
+_internal\winrt\_winrt_windows_graphics_imaging.cp312-win_amd64.pyd,455680,0.4346,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt\_winrt_windows_devices_enumeration.cp312-win_amd64.pyd,448512,0.4277,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\fonts\ttf\STIXGeneral.ttf,448228,0.4275,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\_image.cp312-win_amd64.pyd,446976,0.4263,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt\_winrt_windows_media_mediaproperties.cp312-win_amd64.pyd,423936,0.4043,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\PIL\_webp.cp312-win_amd64.pyd,416256,0.397,PIL.codecs,PIL.features,NO,NO,YES,Optional image codecs not needed for runtime RGB processing
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSerif.ttf,379740,0.3621,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSerif-Bold.ttf,355692,0.3392,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt\_winrt_windows_foundation.cp312-win_amd64.pyd,348672,0.3325,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSerif-BoldItalic.ttf,347064,0.331,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\_path.cp312-win_amd64.pyd,346624,0.3306,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSerif-Italic.ttf,345612,0.3296,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSansMono.ttf,340240,0.3245,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\_tri.cp312-win_amd64.pyd,332288,0.3169,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSansMono-Bold.ttf,331536,0.3162,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt\_winrt_windows_media_capture_frames.cp312-win_amd64.pyd,281088,0.2681,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\numpy\fft\_pocketfft_umath.cp312-win_amd64.pyd,276480,0.2637,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\PIL\_imagingcms.cp312-win_amd64.pyd,272384,0.2598,PIL,INTERNAL,YES,YES,NO,Core runtime
+_internal\_decimal.pyd,262000,0.2499,_decimal.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSansMono-BoldOblique.ttf,253116,0.2414,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSansMono-Oblique.ttf,251472,0.2398,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\certifi\cacert.pem,240216,0.2291,certifi,urllib3/ssl,NO,NO,CONDITIONAL,Offline application without network requests
+_internal\matplotlib\mpl-data\fonts\ttf\STIXGeneralBol.ttf,237360,0.2264,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\numpy\random\_bounded_integers.cp312-win_amd64.pyd,208896,0.1992,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\pyexpat.pyd,205304,0.1958,pyexpat.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\matplotlib\backends\_tkagg.cp312-win_amd64.pyd,201216,0.1919,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\_c_internal_utils.cp312-win_amd64.pyd,181760,0.1733,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt\_winrt_windows_foundation_collections.cp312-win_amd64.pyd,181248,0.1729,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\fonts\ttf\STIXGeneralBolIta.ttf,181152,0.1728,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\_ssl.pyd,179432,0.1711,openssl,python_ssl,CONDITIONAL,NO,CONDITIONAL,"SSL/crypto library for network HTTPS, offline app"
+_internal\matplotlib\mpl-data\fonts\ttf\STIXGeneralItalic.ttf,175040,0.1669,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\numpy\random\_common.cp312-win_amd64.pyd,174080,0.166,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\sample_data\jacksboro_fault_dem.npz,174061,0.166,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\numpy\random\bit_generator.cp312-win_amd64.pyd,173056,0.165,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\_lzma.pyd,161136,0.1537,_lzma.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\dateutil\zoneinfo\dateutil-zoneinfo.tar.gz,156400,0.1492,dateutil,INTERNAL,YES,YES,NO,Core runtime
+_internal\winrt\_winrt_windows_media_capture.pyi,155259,0.1481,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\kiwisolver\_cext.cp312-win_amd64.pyd,151552,0.1445,kiwisolver,INTERNAL,YES,YES,NO,Core runtime
+_internal\winrt\_winrt.cp312-win_amd64.pyd,135168,0.1289,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\_elementtree.pyd,135160,0.1289,_elementtree.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\_ctypes.pyd,127480,0.1216,_ctypes.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\VCRUNTIME140.dll,120400,0.1148,VCRUNTIME140.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\mediapipe\tasks\metadata\metadata_schema_py_generated.py,120280,0.1147,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\numpy-2.5.3.dist-info\RECORD,113272,0.108,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\numpy\linalg\_umath_linalg.cp312-win_amd64.pyd,112128,0.1069,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\numpy\random\_pcg64.cp312-win_amd64.pyd,105984,0.1011,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\mediapipe\tasks\python\vision\face_landmarker.py,96879,0.0924,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\numpy\random\_mt19937.cp312-win_amd64.pyd,92672,0.0884,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\numpy\random\_philox.cp312-win_amd64.pyd,89088,0.085,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\_bz2.pyd,86896,0.0829,_bz2.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\_socket.pyd,85496,0.0815,_socket.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-private-l1-1-0.dll,75344,0.0719,api-ms-win-crt-private-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Helvetica-Oblique.afm,74392,0.0709,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Helvetica.afm,74292,0.0709,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\_asyncio.pyd,74096,0.0707,_asyncio.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\psutil\_psutil_windows.pyd,70656,0.0674,psutil,INTERNAL,YES,YES,NO,Core runtime
+_internal\python3.dll,70376,0.0671,python3.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Helvetica-BoldOblique.afm,69365,0.0662,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Helvetica-Bold.afm,69269,0.0661,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\_hashlib.pyd,68976,0.0658,_hashlib.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\matplotlib\mpl-data\sample_data\Stocks.csv,67924,0.0648,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Times-Italic.afm,66328,0.0633,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\numpy\_core\_multiarray_tests.cp312-win_amd64.pyd,65536,0.0625,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Times-Bold.afm,64251,0.0613,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\numpy\random\_sfc64.cp312-win_amd64.pyd,64000,0.061,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\images\matplotlib.svg,62087,0.0592,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\sample_data\grace_hopper.jpg,61306,0.0585,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Times-Roman.afm,60460,0.0577,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Times-BoldItalic.afm,59642,0.0569,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\STIXNonUni.ttf,59108,0.0564,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\_overlapped.pyd,57336,0.0547,_overlapped.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\VCRUNTIME140_1.dll,49776,0.0475,VCRUNTIME140_1.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\matplotlib\mpl-data\sample_data\membrane.dat,48000,0.0458,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\STIXNonUniIta.ttf,46752,0.0446,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\matplotlibrc,46167,0.044,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt\_winrt_windows_media_mediaproperties.pyi,45987,0.0439,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\numpy-2.5.3.dist-info\licenses\LICENSE.txt,45831,0.0437,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\mediapipe\tasks\python\metadata\metadata_writers\metadata_info.py,45392,0.0433,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\sample_data\topobathy.npz,45224,0.0431,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt\_winrt_windows_devices_enumeration.pyi,42860,0.0409,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt\_winrt_windows_graphics_imaging.pyi,42544,0.0406,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\fonts\ttf\STIXNonUniBolIta.ttf,41272,0.0394,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\_wmi.pyd,40304,0.0384,_wmi.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\libffi-8.dll,39696,0.0379,libffi-8.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\_multiprocessing.pyd,37368,0.0356,_multiprocessing.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\mediapipe\tasks\python\metadata\metadata.py,36317,0.0346,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\_queue.pyd,33784,0.0322,_queue.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\winrt\_winrt_windows_foundation.pyi,33246,0.0317,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\sample_data\s1045.ima.gz,33229,0.0317,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\select.pyd,33136,0.0316,select.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\matplotlib\mpl-data\fonts\ttf\cmti10.ttf,32808,0.0313,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\cmmi10.ttf,32560,0.0311,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\metadata\metadata_writers\metadata_writer.py,31826,0.0304,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winsound.pyd,31736,0.0303,winsound.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\matplotlib\mpl-data\fonts\ttf\STIXNonUniBol.ttf,30512,0.0291,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\api-ms-win-crt-math-l1-1-0.dll,30272,0.0289,api-ms-win-crt-math-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\matplotlib\mpl-data\fonts\ttf\cmsy10.ttf,29396,0.028,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\cmtt10.ttf,28136,0.0268,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\metadata\metadata_schema.fbs,28030,0.0267,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\_uuid.pyd,27128,0.0259,_uuid.pyd,INTERNAL,YES,YES,NO,Core runtime
+_internal\mediapipe\tasks\python\test\vision\image_classifier_test.py,26453,0.0252,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\ttf\cmr10.ttf,26348,0.0251,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\api-ms-win-core-file-l1-1-0.dll,26192,0.025,api-ms-win-core-file-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-convert-l1-1-0.dll,26192,0.025,api-ms-win-crt-convert-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-runtime-l1-1-0.dll,26192,0.025,api-ms-win-crt-runtime-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-stdio-l1-1-0.dll,26192,0.025,api-ms-win-crt-stdio-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-string-l1-1-0.dll,26192,0.025,api-ms-win-crt-string-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSansDisplay.ttf,25712,0.0245,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\cmb10.ttf,25680,0.0245,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\sample_data\eeg.dat,25600,0.0244,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt\_winrt_windows_media_capture_frames.pyi,25218,0.024,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe\tasks\metadata\object_detector_metadata_schema_py_generated.py,25143,0.024,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\stylelib\classic.mplstyle,24591,0.0235,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\vision\holistic_landmarker.py,23534,0.0224,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe-1.0.1.dist-info\RECORD,23458,0.0224,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\images\matplotlib.pdf,22852,0.0218,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\sample_data\goog.npz,22845,0.0218,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\sample_data\logo2.png,22279,0.0212,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\putr8a.afm,22148,0.0211,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\api-ms-win-core-console-l1-1-0.dll,22096,0.0211,api-ms-win-core-console-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-debug-l1-1-0.dll,22096,0.0211,api-ms-win-core-debug-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-errorhandling-l1-1-0.dll,22096,0.0211,api-ms-win-core-errorhandling-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-fibers-l1-1-0.dll,22096,0.0211,api-ms-win-core-fibers-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-file-l2-1-0.dll,22096,0.0211,api-ms-win-core-file-l2-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-processenvironment-l1-1-0.dll,22096,0.0211,api-ms-win-core-processenvironment-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-processthreads-l1-1-1.dll,22096,0.0211,api-ms-win-core-processthreads-l1-1-1.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-rtlsupport-l1-1-0.dll,22096,0.0211,api-ms-win-core-rtlsupport-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-string-l1-1-0.dll,22096,0.0211,api-ms-win-core-string-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-synch-l1-2-0.dll,22096,0.0211,api-ms-win-core-synch-l1-2-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-sysinfo-l1-1-0.dll,22096,0.0211,api-ms-win-core-sysinfo-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-sysinfo-l1-2-0.dll,22096,0.0211,api-ms-win-core-sysinfo-l1-2-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-conio-l1-1-0.dll,22096,0.0211,api-ms-win-crt-conio-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-locale-l1-1-0.dll,22096,0.0211,api-ms-win-crt-locale-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-utility-l1-1-0.dll,22096,0.0211,api-ms-win-crt-utility-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-fibers-l1-1-1.dll,22080,0.0211,api-ms-win-core-fibers-l1-1-1.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-heap-l1-1-0.dll,22080,0.0211,api-ms-win-core-heap-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-kernel32-legacy-l1-1-1.dll,22080,0.0211,api-ms-win-core-kernel32-legacy-l1-1-1.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-localization-l1-2-0.dll,22080,0.0211,api-ms-win-core-localization-l1-2-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-namedpipe-l1-1-0.dll,22080,0.0211,api-ms-win-core-namedpipe-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-processthreads-l1-1-0.dll,22080,0.0211,api-ms-win-core-processthreads-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-profile-l1-1-0.dll,22080,0.0211,api-ms-win-core-profile-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-timezone-l1-1-0.dll,22080,0.0211,api-ms-win-core-timezone-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-util-l1-1-0.dll,22080,0.0211,api-ms-win-core-util-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-environment-l1-1-0.dll,22080,0.0211,api-ms-win-crt-environment-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-filesystem-l1-1-0.dll,22080,0.0211,api-ms-win-crt-filesystem-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-process-l1-1-0.dll,22080,0.0211,api-ms-win-crt-process-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-datetime-l1-1-0.dll,22072,0.021,api-ms-win-core-datetime-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-handle-l1-1-0.dll,22072,0.021,api-ms-win-core-handle-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-memory-l1-1-0.dll,22072,0.021,api-ms-win-core-memory-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-synch-l1-1-0.dll,22072,0.021,api-ms-win-core-synch-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-heap-l1-1-0.dll,22072,0.021,api-ms-win-crt-heap-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-crt-time-l1-1-0.dll,22072,0.021,api-ms-win-crt-time-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-file-l1-2-0.dll,22064,0.021,api-ms-win-core-file-l1-2-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-interlocked-l1-1-0.dll,22056,0.021,api-ms-win-core-interlocked-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\api-ms-win-core-libraryloader-l1-1-0.dll,22056,0.021,api-ms-win-core-libraryloader-l1-1-0.dll,INTERNAL,YES,YES,NO,Core runtime
+_internal\mediapipe\tasks\python\test\vision\face_detector_test.py,22042,0.021,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\afm\putbi8a.afm,21931,0.0209,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\putri8a.afm,21891,0.0209,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\test\vision\holistic_landmarker_test.py,21745,0.0207,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\afm\putb8a.afm,21532,0.0205,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\PIL\_imagingmath.cp312-win_amd64.pyd,21504,0.0205,PIL,INTERNAL,YES,YES,NO,Core runtime
+_internal\mediapipe\tasks\python\test\vision\face_landmarker_test.py,21451,0.0205,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\numpy-2.5.3.dist-info\licenses\numpy\_core\src\highway\LICENSE,21155,0.0202,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\fonts\ttf\cmex10.ttf,21092,0.0201,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\vision\pose_landmarker.py,20683,0.0197,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\vision\image_segmenter_test.py,20519,0.0196,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\vision\object_detector.py,20406,0.0195,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\ttf\cmss10.ttf,20376,0.0194,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\vision\hand_landmarker.py,20370,0.0194,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\vision\hand_landmarker_test.py,20262,0.0193,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\ttf\STIXSizOneSymReg.ttf,19760,0.0188,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\test\vision\pose_landmarker_test.py,19508,0.0186,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\vision\object_detector_test.py,19313,0.0184,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\vision\image_segmenter.py,19135,0.0182,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\audio\audio_classifier_test.py,18906,0.018,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\vision\image_embedder_test.py,18600,0.0177,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\vision\gesture_recognizer.py,18513,0.0177,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt\_winrt_windows_foundation_collections.pyi,18194,0.0174,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe\tasks\python\vision\image_classifier.py,18187,0.0173,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\afm\ptmbi8a.afm,18070,0.0172,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\ptmri8a.afm,18068,0.0172,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\ptmb8a.afm,17983,0.0171,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\audio\audio_classifier.py,17951,0.0171,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\afm\ptmr8a.afm,17942,0.0171,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\phvro8a.afm,17919,0.0171,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\phvro8an.afm,17877,0.017,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\phvr8a.afm,17839,0.017,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\vision\image_embedder.py,17830,0.017,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\afm\phvr8an.afm,17781,0.017,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pncbi8a.afm,17496,0.0167,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pagko8a.afm,17346,0.0165,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pagdo8a.afm,17255,0.0165,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pagk8a.afm,17241,0.0164,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\phvbo8a.afm,17230,0.0164,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\phvbo8an.afm,17195,0.0164,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pagd8a.afm,17183,0.0164,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\phvb8a.afm,17155,0.0164,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\phvb8an.afm,17086,0.0163,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\vision\core\image.py,16930,0.0161,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\afm\pncri8a.afm,16920,0.0161,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pncr8a.afm,16665,0.0159,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pzcmi8a.afm,16250,0.0155,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pncb8a.afm,16028,0.0153,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\vision\face_detector.py,16000,0.0153,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\ttf\STIXSizFourSymReg.ttf,15972,0.0152,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\STIXSizThreeSymReg.ttf,15836,0.0151,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pplbi8a.afm,15810,0.0151,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pplr8a.afm,15752,0.015,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pplri8a.afm,15733,0.015,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\phvlo8a.afm,15729,0.015,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\STIXSizTwoSymReg.ttf,15704,0.015,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pplb8a.afm,15662,0.0149,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\phvl8a.afm,15627,0.0149,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pcrro8a.afm,15443,0.0147,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Courier-Oblique.afm,15441,0.0147,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pcrbo8a.afm,15422,0.0147,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Courier-BoldOblique.afm,15399,0.0147,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pcrb8a.afm,15352,0.0146,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pcrr8a.afm,15339,0.0146,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Courier.afm,15335,0.0146,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Courier-Bold.afm,15333,0.0146,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pbkdi8a.afm,15278,0.0146,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pbkli8a.afm,15181,0.0145,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pbkd8a.afm,15157,0.0145,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pbkl8a.afm,15000,0.0143,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\PIL\_imagingtk.cp312-win_amd64.pyd,14848,0.0142,tkinter/tcl,mouseinfo/pymsgbox (pyautogui deps),NO,NO,YES,No GUI toolkit required; OpenCV handles all window rendering
+_internal\matplotlib\mpl-data\fonts\ttf\DejaVuSerifDisplay.ttf,14300,0.0136,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\STIXSizFiveSymReg.ttf,13656,0.013,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\sample_data\Minduka_Present_Blue_Pack.png,13634,0.013,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\vision\drawing_utils.py,13273,0.0127,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt\windows\media\capture\__init__.py,13264,0.0126,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe\tasks\python\metadata\metadata_writers\object_detector.py,12970,0.0124,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\ttf\STIXSizOneSymBol.ttf,12556,0.012,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\vision\interactive_segmenter_legacy.py,12518,0.0119,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe-1.0.1.dist-info\licenses\LICENSE,12331,0.0118,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\vision\interactive_segmenter_legacy_test.py,12305,0.0117,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\ttf\STIXSizFourSymBol.ttf,12228,0.0117,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\STIXSizThreeSymBol.ttf,12192,0.0116,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\STIXSizTwoSymBol.ttf,12116,0.0116,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\cmex10.afm,12070,0.0115,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\test\text\text_embedder_test.py,11860,0.0113,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\text\text_classifier_test.py,11680,0.0111,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\text\text_proofreader.py,11196,0.0107,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\text\text_embedder.py,10803,0.0103,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe-1.0.1.dist-info\METADATA,10688,0.0102,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\vision\drawing_styles.py,10531,0.01,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\afm\cmmi10.afm,10416,0.0099,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\cmr10.afm,10101,0.0096,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\text\text_classifier.py,9814,0.0094,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\text\language_detector.py,9775,0.0093,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\Symbol.afm,9740,0.0093,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\cmti10.afm,9645,0.0092,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\psyr.afm,9644,0.0092,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\text\text_summarizer.py,9532,0.0091,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\ZapfDingbats.afm,9527,0.0091,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\afm\pzdr.afm,9467,0.009,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\test\text\language_detector_test.py,8787,0.0084,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\afm\cmsy10.afm,8295,0.0079,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\core\async_result_dispatcher.py,7813,0.0075,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\vision\interactive_segmenter.py,7406,0.0071,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\core\mediapipe_c_utils.py,7346,0.007,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\test_utils.py,7122,0.0068,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt\runtime\_internals.py,7092,0.0068,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\cv2\__init__.py,6811,0.0065,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\winrt\_winrt.pyi,6719,0.0064,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\numpy-2.5.3.dist-info\METADATA,6635,0.0063,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\fonts\afm\cmtt10.afm,6501,0.0062,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\metadata\metadata_writers\image_segmenter.py,6358,0.0061,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\vision\proto_utils.py,6327,0.006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\metadata\metadata_writers\text_classifier.py,5558,0.0053,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\ttf\LICENSE_STIX,5476,0.0052,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\components\containers\audio_data.py,5119,0.0049,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\images\hand.svg,4906,0.0047,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\fonts\ttf\LICENSE_DEJAVU,4816,0.0046,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt\windows\devices\enumeration\__init__.py,4761,0.0045,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe\tasks\python\vision\__init__.py,4531,0.0043,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\cv2\typing\__init__.py,4465,0.0043,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\mediapipe\tasks\python\test\vision\image_test.py,4237,0.004,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\containers\landmark.py,4219,0.004,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\images\hand.pdf,4172,0.004,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\core\base_options.py,3997,0.0038,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt\windows\foundation\__init__.py,3959,0.0038,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe\tasks\python\components\containers\detections.py,3880,0.0037,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\containers\rect.py,3822,0.0036,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\audio\core\audio_record.py,3655,0.0035,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\containers\classification_result.py,3635,0.0035,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\metadata\image_segmenter_metadata_schema_py_generated.py,3612,0.0034,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\numpy-2.5.3.dist-info\licenses\numpy\random\LICENSE.md,3582,0.0034,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\mediapipe\tasks\python\core\mediapipe_c_bindings.py,3578,0.0034,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\metadata\object_detector_metadata_schema.fbs,3507,0.0033,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\benchmark\vision\benchmark.py,3491,0.0033,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\vision\gesture_recognizer_result.py,3482,0.0033,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\containers\embedding_result.py,3396,0.0032,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\containers\category.py,3309,0.0032,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\sample_data\msft.csv,3211,0.0031,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\metadata\metadata_writers\writer_utils.py,3094,0.003,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\images\matplotlib_large.png,3088,0.0029,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\core\serial_dispatcher.py,3071,0.0029,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\metadata\metadata_writers\image_classifier.py,3023,0.0029,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\numpy-2.5.3.dist-info\licenses\numpy\random\src\mt19937\LICENSE.md,2986,0.0028,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\mediapipe\tasks\python\components\processors\classifier_options_c.py,2858,0.0027,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt\windows\graphics\imaging\__init__.py,2834,0.0027,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\numpy-2.5.3.dist-info\licenses\numpy\random\src\distributions\LICENSE.md,2805,0.0027,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\mediapipe\tasks\python\metadata\metadata_writers\model_asset_bundle_utils.py,2622,0.0025,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\vision\core\vision_task_running_mode.py,2589,0.0025,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt\windows\media\capture\frames\__init__.py,2536,0.0024,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\images\move-symbolic.svg,2529,0.0024,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\move.svg,2529,0.0024,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\components\processors\classifier_options.py,2449,0.0023,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt_windows_media_capture-3.2.1.dist-info\METADATA,2356,0.0022,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe\tasks\python\vision\core\image_processing_options.py,2351,0.0022,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\numpy-2.5.3.dist-info\licenses\numpy\linalg\lapack_lite\LICENSE.txt,2314,0.0022,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\mediapipe\tasks\metadata\image_segmenter_metadata_schema.fbs,2308,0.0022,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\utils\cosine_similarity.py,2297,0.0022,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\benchmark\benchmark_utils.py,2241,0.0021,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\containers\keypoint.py,2240,0.0021,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\text\__init__.py,2234,0.0021,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt\windows\media\mediaproperties\__init__.py,2201,0.0021,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt\system\__init__.py,2190,0.0021,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\sample_data\embedding_in_wx3.xrc,2186,0.0021,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\subplots-symbolic.svg,2150,0.0021,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\subplots.svg,2150,0.0021,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\components\containers\__init__.py,2113,0.002,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt\windows\foundation\collections\__init__.py,2104,0.002,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\images\filesave-symbolic.svg,2049,0.002,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\filesave.svg,2049,0.002,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\components\containers\bounding_box.py,2041,0.0019,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt_windows_media_capture_frames-3.2.1.dist-info\METADATA,2007,0.0019,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe\tasks\python\core\base_options_c.py,1928,0.0018,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\images\home-symbolic.svg,1911,0.0018,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\home.svg,1911,0.0018,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\help-symbolic.svg,1890,0.0018,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\help.svg,1890,0.0018,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\sample_data\axes_grid\bivariate_normal.npy,1880,0.0018,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\move.pdf,1867,0.0018,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\components\containers\landmark_c.py,1846,0.0018,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\images\help.pdf,1813,0.0017,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt\system\hresult.py,1757,0.0017,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\images\home.pdf,1737,0.0017,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\filesave.pdf,1734,0.0017,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\subplots.pdf,1714,0.0016,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt_runtime-3.2.1.dist-info\RECORD,1657,0.0016,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\images\forward.pdf,1630,0.0016,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\back.pdf,1623,0.0015,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\numpy-2.5.3.dist-info\licenses\numpy\ma\LICENSE,1616,0.0015,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\images\zoom_to_rect.pdf,1609,0.0015,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\components\containers\matrix_c.py,1573,0.0015,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\numpy-2.5.3.dist-info\licenses\numpy\_core\src\umath\svml\LICENSE,1573,0.0015,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\images\qt4_editor_options.pdf,1568,0.0015,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\forward-symbolic.svg,1551,0.0015,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\forward.svg,1551,0.0015,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\components\containers\landmark_detection_result.py,1550,0.0015,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\audio\core\audio_task_running_mode.py,1549,0.0015,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\numpy-2.5.3.dist-info\licenses\numpy\_core\src\npysort\x86-simd-sort\LICENSE.md,1542,0.0015,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\numpy-2.5.3.dist-info\licenses\numpy\random\src\philox\LICENSE.md,1540,0.0015,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\images\back-symbolic.svg,1532,0.0015,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\back.svg,1532,0.0015,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt_windows_devices_enumeration-3.2.1.dist-info\METADATA,1526,0.0015,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\numpy-2.5.3.dist-info\licenses\numpy\fft\pocketfft\LICENSE.md,1523,0.0015,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\images\zoom_to_rect-symbolic.svg,1499,0.0014,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\zoom_to_rect.svg,1499,0.0014,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\vision\gesture_recognizer_result_c.py,1455,0.0014,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\numpy-2.5.3.dist-info\licenses\numpy\_core\src\multiarray\dragon4_LICENSE.txt,1441,0.0014,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\mediapipe\tasks\python\components\containers\detections_c.py,1413,0.0013,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\containers\rect_c.py,1390,0.0013,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt_windows_media_mediaproperties-3.2.1.dist-info\METADATA,1371,0.0013,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe\tasks\python\benchmark\vision\core\base_vision_benchmark_api.py,1331,0.0013,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt_windows_graphics_imaging-3.2.1.dist-info\METADATA,1300,0.0012,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\images\matplotlib.png,1283,0.0012,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\qt4_editor_options.svg,1264,0.0012,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\Solarize_Light2.mplstyle,1258,0.0012,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\numpy-2.5.3.dist-info\licenses\numpy\random\src\sfc64\LICENSE.md,1253,0.0012,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\mediapipe\tasks\python\components\containers\embedding_result_c.py,1251,0.0012,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\containers\classification_result_c.py,1225,0.0012,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\metadata\metadata_displayer_cli.py,1202,0.0011,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\numpy-2.5.3.dist-info\licenses\numpy\random\src\pcg64\LICENSE.md,1176,0.0011,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\cv2\mat_wrapper\__init__.py,1164,0.0011,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\winrt_windows_foundation_collections-3.2.1.dist-info\RECORD,1164,0.0011,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_mediaproperties-3.2.1.dist-info\RECORD,1153,0.0011,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_capture_frames-3.2.1.dist-info\RECORD,1142,0.0011,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_devices_enumeration-3.2.1.dist-info\RECORD,1131,0.0011,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8.mplstyle,1130,0.0011,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt_windows_graphics_imaging-3.2.1.dist-info\RECORD,1098,0.001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe\tasks\python\components\containers\category_c.py,1081,0.001,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt_windows_foundation_collections-3.2.1.dist-info\METADATA,1077,0.001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe\tasks\python\audio\__init__.py,1068,0.001,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt_windows_media_capture-3.2.1.dist-info\RECORD,1067,0.001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe\tasks\python\core\optional_dependencies.py,1061,0.001,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt_windows_foundation-3.2.1.dist-info\METADATA,1041,0.001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\numpy-2.5.3.dist-info\licenses\numpy\_core\include\numpy\libdivide\LICENSE.txt,1039,0.001,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\winrt_windows_foundation-3.2.1.dist-info\RECORD,1032,0.001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\images\zoom_to_rect_large.png,1016,0.001,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\hand.png,979,0.0009,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\vision\core\image_processing_options_c.py,972,0.0009,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\stylelib\ggplot.mplstyle,956,0.0009,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\components\containers\audio_data_c.py,915,0.0009,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\containers\keypoint_c.py,879,0.0008,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\processors\__init__.py,868,0.0008,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\__init__.py,838,0.0008,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\fonts\pdfcorefonts\readme.txt,828,0.0008,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\home_large.png,790,0.0008,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\__init__.py,782,0.0007,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\stylelib\fivethirtyeight.mplstyle,780,0.0007,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt_runtime-3.2.1.dist-info\METADATA,780,0.0007,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\images\move_large.png,767,0.0007,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\cv2\config-3.py,748,0.0007,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\matplotlib\mpl-data\images\help_large.png,747,0.0007,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\filesave_large.png,720,0.0007,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\numpy-2.5.3.dist-info\licenses\numpy\_core\src\common\pythoncapi-compat\COPYING,704,0.0007,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\stylelib\bmh.mplstyle,687,0.0007,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-darkgrid.mplstyle,670,0.0006,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-dark.mplstyle,667,0.0006,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-ticks.mplstyle,665,0.0006,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-white.mplstyle,665,0.0006,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-whitegrid.mplstyle,664,0.0006,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\subplots_large.png,662,0.0006,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\back_large.png,620,0.0006,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\qt4_editor_options_large.png,619,0.0006,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\dark_background.mplstyle,607,0.0006,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\forward_large.png,593,0.0006,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\tasks\python\audio\core\__init__.py,593,0.0006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\benchmark\__init__.py,587,0.0006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\benchmark\vision\__init__.py,587,0.0006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\__init__.py,587,0.0006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\components\utils\__init__.py,587,0.0006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\core\__init__.py,587,0.0006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\__init__.py,587,0.0006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\audio\__init__.py,587,0.0006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\text\__init__.py,587,0.0006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\test\vision\__init__.py,587,0.0006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\metadata\__init__.py,586,0.0006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\metadata\metadata_writers\__init__.py,586,0.0006,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\__init__.py,571,0.0005,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\benchmark\vision\core\__init__.py,571,0.0005,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\tasks\python\vision\core\__init__.py,571,0.0005,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\images\zoom_to_rect.png,530,0.0005,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\grayscale.mplstyle,526,0.0005,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\_mpl-gallery.mplstyle,504,0.0005,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\_mpl-gallery-nogrid.mplstyle,489,0.0005,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\move.png,481,0.0005,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\help.png,472,0.0005,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\home.png,468,0.0004,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\numpy-2.5.3.dist-info\DELVEWHEEL,462,0.0004,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\images\filesave.png,458,0.0004,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\subplots.png,445,0.0004,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-poster.mplstyle,403,0.0004,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-talk.mplstyle,403,0.0004,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\winrt\runtime\__init__.py,395,0.0004,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-paper.mplstyle,393,0.0004,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-notebook.mplstyle,382,0.0004,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\back.png,380,0.0004,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\qt4_editor_options.png,380,0.0004,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\images\forward.png,357,0.0003,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\cv2\utils\__init__.py,344,0.0003,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\numpy-2.5.3.dist-info\licenses\numpy\random\src\splitmix64\LICENSE.md,340,0.0003,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\plot_directive\plot_directive.css,318,0.0003,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\petroff10.mplstyle,298,0.0003,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\fast.mplstyle,288,0.0003,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\petroff8.mplstyle,278,0.0003,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\petroff6.mplstyle,258,0.0002,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\cv2\load_config_py3.py,253,0.0002,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\numpy-2.5.3.dist-info\entry_points.txt,220,0.0002,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\matplotlib\mpl-data\stylelib\tableau-colorblind10.mplstyle,190,0.0002,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\kpsewhich.lua,189,0.0002,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\_classic_test_patch.mplstyle,184,0.0002,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\mediapipe\modules\objectron\object_detection_oidv4_labelmap.txt,184,0.0002,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-colorblind.mplstyle,148,0.0001,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-bright.mplstyle,144,0.0001,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-pastel.mplstyle,144,0.0001,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-muted.mplstyle,143,0.0001,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-dark-palette.mplstyle,142,0.0001,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\stylelib\seaborn-v0_8-deep.mplstyle,142,0.0001,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\sample_data\data_x_x2_x3.csv,132,0.0001,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\matplotlib\mpl-data\sample_data\README.txt,128,0.0001,matplotlib,mouseinfo (pyautogui dep),NO,NO,YES,Never imported by hand_controller; unused in production
+_internal\cv2\config.py,123,0.0001,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\winrt_runtime-3.2.1.dist-info\WHEEL,101,0.0001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_devices_enumeration-3.2.1.dist-info\WHEEL,101,0.0001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_foundation-3.2.1.dist-info\WHEEL,101,0.0001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_foundation_collections-3.2.1.dist-info\WHEEL,101,0.0001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_graphics_imaging-3.2.1.dist-info\WHEEL,101,0.0001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_capture-3.2.1.dist-info\WHEEL,101,0.0001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_capture_frames-3.2.1.dist-info\WHEEL,101,0.0001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_mediaproperties-3.2.1.dist-info\WHEEL,101,0.0001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe-1.0.1.dist-info\WHEEL,98,0.0001,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\cv2\version.py,96,0.0001,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\cv2\misc\version.py,95,0.0001,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\winrt\runtime\interop.py,86,0.0001,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\numpy-2.5.3.dist-info\WHEEL,85,0.0001,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\cv2\data\__init__.py,73,0.0001,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\mediapipe-1.0.1.dist-info\top_level.txt,41,0.0,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\cv2\misc\__init__.py,38,0.0,opencv,"hand_controller.camera, hand_controller.renderer",YES,YES,NO,"Primary camera conversion (NV12->RGB), fallback MSMF, imshow"
+_internal\mediapipe\tasks\c\__init__.py,28,0.0,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\mediapipe\modules\hand_landmark\handedness.txt,11,0.0,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt_runtime-3.2.1.dist-info\top_level.txt,6,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_devices_enumeration-3.2.1.dist-info\top_level.txt,6,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_foundation-3.2.1.dist-info\top_level.txt,6,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_foundation_collections-3.2.1.dist-info\top_level.txt,6,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_graphics_imaging-3.2.1.dist-info\top_level.txt,6,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_capture-3.2.1.dist-info\top_level.txt,6,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_capture_frames-3.2.1.dist-info\top_level.txt,6,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_mediaproperties-3.2.1.dist-info\top_level.txt,6,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\mediapipe-1.0.1.dist-info\INSTALLER,4,0.0,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\numpy-2.5.3.dist-info\INSTALLER,4,0.0,numpy,"cv2, mediapipe, hand_controller",YES,YES,NO,NDArray buffer management for frame processing
+_internal\winrt_runtime-3.2.1.dist-info\INSTALLER,4,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_devices_enumeration-3.2.1.dist-info\INSTALLER,4,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_foundation-3.2.1.dist-info\INSTALLER,4,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_foundation_collections-3.2.1.dist-info\INSTALLER,4,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_graphics_imaging-3.2.1.dist-info\INSTALLER,4,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_capture-3.2.1.dist-info\INSTALLER,4,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_capture_frames-3.2.1.dist-info\INSTALLER,4,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_mediaproperties-3.2.1.dist-info\INSTALLER,4,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\certifi\py.typed,0,0.0,certifi,urllib3/ssl,NO,NO,CONDITIONAL,Offline application without network requests
+_internal\mediapipe-1.0.1.dist-info\REQUESTED,0,0.0,mediapipe,hand_controller.app,YES,YES,NO,HandLandmarker core AI inference engine
+_internal\winrt\py.typed,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt\runtime\py.typed,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt\system\py.typed,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt\windows\devices\enumeration\py.typed,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt\windows\foundation\py.typed,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt\windows\foundation\collections\py.typed,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt\windows\graphics\imaging\py.typed,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt\windows\media\capture\py.typed,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt\windows\media\capture\frames\py.typed,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt\windows\media\mediaproperties\py.typed,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_runtime-3.2.1.dist-info\REQUESTED,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_devices_enumeration-3.2.1.dist-info\REQUESTED,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_foundation-3.2.1.dist-info\REQUESTED,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_foundation_collections-3.2.1.dist-info\REQUESTED,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_graphics_imaging-3.2.1.dist-info\REQUESTED,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_capture-3.2.1.dist-info\REQUESTED,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_capture_frames-3.2.1.dist-info\REQUESTED,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend
+_internal\winrt_windows_media_mediaproperties-3.2.1.dist-info\REQUESTED,0,0.0,winrt,hand_controller.camera,YES,YES,NO,Primary Windows MediaCapture real-time camera backend

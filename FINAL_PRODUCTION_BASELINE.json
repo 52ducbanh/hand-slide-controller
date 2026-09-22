@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "timestamp_iso": "2026-09-22T11:27:00+07:00",
+  "baseline_commit": "d4e8d5708bc3dac10b2b388617170c29f993b4e8",
+  "git_status": "M HandSlideController.spec\n M camera_backend_report.md\n M hand_controller/app.py\n M hand_controller/config.py\n?? FINAL_FEATURE_CONTRACT.json\n?? action_dispatch_benchmark.json\n?? audit_metric_integrity.py\n?? benchmark_dispatch_final.py\n?? camera_backend_benchmark.json\n?? camera_backend_trials.csv\n?? camera_reopen_10x.json\n?? camera_threading_results.json\n?? cpu_affinity_benchmark.json\n?? exp_action_dispatch.py\n?? exp_camera_backends.py\n?? exp_camera_reopen_10x.py\n?? exp_camera_threading.py\n?? exp_cpu_affinity.py\n?? exp_live_camera_latency.py\n?? exp_live_e2e_benchmark.py\n?? exp_live_gesture_harness.py\n?? exp_live_stability_10min.py\n?? exp_production_v3_ab_benchmark.py\n?? exp_production_v3_accuracy.py\n?? exp_production_v3_stability.py\n?? generate_baseline_metadata.py\n?? gesture_validation_matrix.json\n?? hand_controller/camera.py\n?? live_camera_frames.csv\n?? live_camera_latency.json\n?? live_e2e_latency.json\n?? production_v2_stability_10min.json\n?? production_v3_accuracy.json\n?? production_v3_metric_integrity.json\n?? production_v3_metric_integrity_frames.csv\n?? production_v3_metric_integrity_report.md\n?? production_v3_report.md\n?? production_v3_stability.json\n?? production_v3_winrt_benchmark.json\n?? production_v3_winrt_frames.csv\n?? scratch_import_trace.py\n?? scratch_xref_importers.py\n?? scratch_xref_parse.py\n?? test_win32_receiver.py\n?? tests/test_camera.py\n?? ultimate_optimization_matrix.json\n?? ultimate_optimization_report.md",
+  "environment": {
+    "os_name": "Windows",
+    "windows_version": "10.0.26200",
+    "windows_platform": "Windows-11-10.0.26200-SP0",
+    "cpu_model": "12th Gen Intel(R) Core(TM) i5-12450H",
+    "ram_total_gb": 15.71,
+    "python_version": "3.12.10",
+    "python_full": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "opencv_version": "5.0.0",
+    "mediapipe_version": "1.0.1",
+    "numpy_version": "2.5.3",
+    "winrt_runtime_version": "3.2.1",
+    "pyautogui_version": "0.9.54",
+    "pyinstaller_version": "6.22.3",
+    "model_file": "hand_landmarker.task",
+    "model_sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1",
+    "model_size_bytes": 7819105
+  }
+}
