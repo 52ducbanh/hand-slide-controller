@@ -2,6 +2,7 @@ from __future__ import annotations
 import ctypes
 from ctypes import wintypes
 import sys
+import time
 from .models import SlideAction, ACTION_TO_KEY
 
 
@@ -17,8 +18,22 @@ VK_LEFT = 0x25
 VK_RIGHT = 0x27
 VK_B = 0x42
 
+KEYEVENTF_EXTENDEDKEY = 0x0001
 KEYEVENTF_KEYUP = 0x0002
 INPUT_KEYBOARD = 1
+
+EXTENDED_VKS = {VK_LEFT, VK_RIGHT}
+
+
+class MOUSEINPUT(ctypes.Structure):
+    _fields_ = [
+        ("dx", wintypes.LONG),
+        ("dy", wintypes.LONG),
+        ("mouseData", wintypes.DWORD),
+        ("dwFlags", wintypes.DWORD),
+        ("time", wintypes.DWORD),
+        ("dwExtraInfo", ctypes.c_size_t),
+    ]
 
 
 class KEYBDINPUT(ctypes.Structure):
@@ -27,12 +42,24 @@ class KEYBDINPUT(ctypes.Structure):
         ("wScan", wintypes.WORD),
         ("dwFlags", wintypes.DWORD),
         ("time", wintypes.DWORD),
-        ("dwExtraInfo", ctypes.POINTER(ctypes.c_ulong)),
+        ("dwExtraInfo", ctypes.c_size_t),
+    ]
+
+
+class HARDWAREINPUT(ctypes.Structure):
+    _fields_ = [
+        ("uMsg", wintypes.DWORD),
+        ("wParamL", wintypes.WORD),
+        ("wParamH", wintypes.WORD),
     ]
 
 
 class _INPUTunion(ctypes.Union):
-    _fields_ = [("ki", KEYBDINPUT)]
+    _fields_ = [
+        ("mi", MOUSEINPUT),
+        ("ki", KEYBDINPUT),
+        ("hi", HARDWAREINPUT),
+    ]
 
 
 class INPUT(ctypes.Structure):
@@ -54,18 +81,35 @@ ACTION_TO_VK: dict[SlideAction, int] = {
 
 
 def _send_vk(vk: int) -> None:
+    scan = user32.MapVirtualKeyW(vk, 0)
+    flags_down = KEYEVENTF_EXTENDEDKEY if vk in EXTENDED_VKS else 0
+    flags_up = flags_down | KEYEVENTF_KEYUP
+
+    # 1. Primary path: Native 64-bit SendInput (cbSize = 40 bytes)
     inp_down = INPUT()
     inp_down.type = INPUT_KEYBOARD
     inp_down.ki.wVk = vk
-    inp_down.ki.dwFlags = 0
+    inp_down.ki.wScan = scan
+    inp_down.ki.dwFlags = flags_down
+
+    ret_down = user32.SendInput(1, ctypes.byref(inp_down), ctypes.sizeof(INPUT))
+
+    # Hold key for 15ms so the target app's message pump registers the WM_KEYDOWN
+    time.sleep(0.015)
 
     inp_up = INPUT()
     inp_up.type = INPUT_KEYBOARD
     inp_up.ki.wVk = vk
-    inp_up.ki.dwFlags = KEYEVENTF_KEYUP
+    inp_up.ki.wScan = scan
+    inp_up.ki.dwFlags = flags_up
 
-    user32.SendInput(1, ctypes.byref(inp_down), ctypes.sizeof(INPUT))
-    user32.SendInput(1, ctypes.byref(inp_up), ctypes.sizeof(INPUT))
+    ret_up = user32.SendInput(1, ctypes.byref(inp_up), ctypes.sizeof(INPUT))
+
+    # 2. Bulletproof Fallback: keybd_event if SendInput fails or is blocked
+    if ret_down == 0 or ret_up == 0:
+        user32.keybd_event(vk, scan, flags_down, 0)
+        time.sleep(0.015)
+        user32.keybd_event(vk, scan, flags_up, 0)
 
 
 class ActionDispatcher:
