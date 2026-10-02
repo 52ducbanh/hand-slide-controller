@@ -4,6 +4,8 @@ A real-time hand gesture controller that lets you navigate presentation slides (
 
 No physical contact required — simply show a **Scissors gesture** to go back, a **Thumbs Up (Like)** to advance, or an **Open Palm** to blackout the screen.
 
+![Hand Slide Controller in action](assets/demo.png)
+
 ---
 
 ## 🎯 FEATURES
