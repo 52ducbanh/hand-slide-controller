@@ -3,6 +3,7 @@ import ctypes
 from ctypes import wintypes
 import sys
 import time
+from typing import Protocol
 from .models import SlideAction, ACTION_TO_KEY
 
 
@@ -80,42 +81,100 @@ ACTION_TO_VK: dict[SlideAction, int] = {
 }
 
 
-def _send_vk(vk: int) -> None:
-    scan = user32.MapVirtualKeyW(vk, 0)
-    flags_down = KEYEVENTF_EXTENDEDKEY if vk in EXTENDED_VKS else 0
-    flags_up = flags_down | KEYEVENTF_KEYUP
+class KeySender(Protocol):
+    """Protocol for sending keyboard inputs."""
+    def send_key(self, vk: int) -> bool:
+        ...
 
-    # 1. Primary path: Native 64-bit SendInput (cbSize = 40 bytes)
-    inp_down = INPUT()
-    inp_down.type = INPUT_KEYBOARD
-    inp_down.ki.wVk = vk
-    inp_down.ki.wScan = scan
-    inp_down.ki.dwFlags = flags_down
 
-    ret_down = user32.SendInput(1, ctypes.byref(inp_down), ctypes.sizeof(INPUT))
+class Win32KeySender:
+    """Native Windows keyboard input injector using 64-bit SendInput with keybd_event fallback."""
 
-    # Hold key for 15ms so the target app's message pump registers the WM_KEYDOWN
-    time.sleep(0.015)
+    def send_key(self, vk: int) -> bool:
+        scan = user32.MapVirtualKeyW(vk, 0)
+        flags_down = KEYEVENTF_EXTENDEDKEY if vk in EXTENDED_VKS else 0
+        flags_up = flags_down | KEYEVENTF_KEYUP
 
-    inp_up = INPUT()
-    inp_up.type = INPUT_KEYBOARD
-    inp_up.ki.wVk = vk
-    inp_up.ki.wScan = scan
-    inp_up.ki.dwFlags = flags_up
+        # 1. Primary path: Native 64-bit SendInput (cbSize = 40 bytes)
+        inp_down = INPUT()
+        inp_down.type = INPUT_KEYBOARD
+        inp_down.ki.wVk = vk
+        inp_down.ki.wScan = scan
+        inp_down.ki.dwFlags = flags_down
 
-    ret_up = user32.SendInput(1, ctypes.byref(inp_up), ctypes.sizeof(INPUT))
+        ret_down = user32.SendInput(1, ctypes.byref(inp_down), ctypes.sizeof(INPUT))
 
-    # 2. Bulletproof Fallback: keybd_event if SendInput fails or is blocked
-    if ret_down == 0 or ret_up == 0:
-        user32.keybd_event(vk, scan, flags_down, 0)
+        # Hold key for 15ms so the target app's message pump registers the WM_KEYDOWN
         time.sleep(0.015)
-        user32.keybd_event(vk, scan, flags_up, 0)
+
+        inp_up = INPUT()
+        inp_up.type = INPUT_KEYBOARD
+        inp_up.ki.wVk = vk
+        inp_up.ki.wScan = scan
+        inp_up.ki.dwFlags = flags_up
+
+        ret_up = user32.SendInput(1, ctypes.byref(inp_up), ctypes.sizeof(INPUT))
+
+        # 2. Bulletproof Fallback: keybd_event if SendInput fails or is blocked
+        if ret_down == 0 or ret_up == 0:
+            user32.keybd_event(vk, scan, flags_down, 0)
+            time.sleep(0.015)
+            user32.keybd_event(vk, scan, flags_up, 0)
+
+        return True
+
+
+class AudioPlayer(Protocol):
+    """Protocol for audio feedback effects."""
+    def play_action_feedback(self) -> None:
+        ...
+
+
+class Win32AudioPlayer:
+    """Windows audio feedback implementation using winsound."""
+
+    def play_action_feedback(self) -> None:
+        try:
+            import winsound
+            winsound.PlaySound("NavigationStart", winsound.SND_ALIAS | winsound.SND_ASYNC)
+        except Exception:
+            try:
+                import winsound
+                winsound.MessageBeep(-1)
+            except Exception:
+                pass
+
+
+class NullAudioPlayer:
+    """No-op audio player when sound feedback is disabled or unavailable."""
+
+    def play_action_feedback(self) -> None:
+        pass
+
+
+_DEFAULT_KEY_SENDER = Win32KeySender()
+
+
+def _send_vk(vk: int) -> None:
+    """Convenience function preserving backward compatibility."""
+    _DEFAULT_KEY_SENDER.send_key(vk)
 
 
 class ActionDispatcher:
-    def __init__(self, cooldown: float, audio_feedback: bool = False) -> None:
+    """High-level slide action dispatcher with rate-limiting cooldown and decoupled output devices."""
+
+    def __init__(
+        self,
+        cooldown: float,
+        audio_feedback: bool = False,
+        *,
+        key_sender: KeySender | None = None,
+        audio_player: AudioPlayer | None = None,
+    ) -> None:
         self._cooldown = cooldown
         self._audio_feedback = audio_feedback
+        self._key_sender = key_sender or _DEFAULT_KEY_SENDER
+        self._audio_player = audio_player or (Win32AudioPlayer() if audio_feedback else NullAudioPlayer())
         self._last_action_time: float = 0.0
         self._last_action_text: str = ""
 
@@ -127,7 +186,7 @@ class ActionDispatcher:
         vk = ACTION_TO_VK.get(action)
         if vk is None:
             return False
-        _send_vk(vk)
+        self._key_sender.send_key(vk)
         self._last_action_time = now
         self._last_action_text = self._make_text(action)
         if sys.stdout is not None:
@@ -136,7 +195,7 @@ class ActionDispatcher:
             except Exception:
                 pass
         if self._audio_feedback:
-            self._play_feedback_sound()
+            self._audio_player.play_action_feedback()
         return True
 
     @property
@@ -150,15 +209,3 @@ class ActionDispatcher:
     @staticmethod
     def _make_text(action: SlideAction) -> str:
         return ACTION_DISPLAY_TEXT.get(action, "")
-
-    @staticmethod
-    def _play_feedback_sound() -> None:
-        try:
-            import winsound
-            winsound.PlaySound("NavigationStart", winsound.SND_ALIAS | winsound.SND_ASYNC)
-        except Exception:
-            try:
-                import winsound
-                winsound.MessageBeep(-1)
-            except Exception:
-                pass

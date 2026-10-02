@@ -31,7 +31,7 @@ class TrackingConfig:
     max_match_distance: float = 0.30
     gesture_stable_time: float = 0.08
     rearm_stable_time: float = 0.15
-    max_trigger_velocity: float = 0.80
+    max_trigger_velocity: float = 1.2
 
 
 @dataclass(frozen=True)

@@ -175,3 +175,12 @@ def test_factory_invalid_backend():
     cfg = CameraConfig(backend="DIRECTSHOW_UNSUPPORTED")
     with pytest.raises(ValueError, match="Unknown camera backend"):
         create_camera_source(cfg)
+
+
+def test_msmf_source_fallback_reason_constructor():
+    """Verifies OpenCVMSMFCameraSource accepts fallback_reason directly via constructor."""
+    cfg = CameraConfig(backend="AUTO")
+    source = OpenCVMSMFCameraSource(cfg, fallback_reason="DirectConstructorTest")
+    assert source.diagnostics.fallback_reason == "DirectConstructorTest"
+    assert source.diagnostics.selected_backend == "MSMF"
+    assert source.diagnostics.fallback_occurred is True

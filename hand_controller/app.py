@@ -36,6 +36,7 @@ _RunningMode = mp.tasks.vision.RunningMode
 WIN_NAME = "Gesture Slide Controller"
 
 _user32 = ctypes.windll.user32
+SW_MINIMIZE: int = 6
 
 
 class _FrameMeta(NamedTuple):
@@ -67,16 +68,27 @@ class _AsyncSharedState:
 
 
 class App:
-    def __init__(self, cfg: AppConfig | None = None) -> None:
+    def __init__(
+        self,
+        cfg: AppConfig | None = None,
+        *,
+        recognizer: GestureRecognizer | None = None,
+        tracker: HandTracker | None = None,
+        state_machine: GestureStateMachine | None = None,
+        dispatcher: ActionDispatcher | None = None,
+        renderer: Renderer | None = None,
+        camera_source: CameraSource | None = None,
+    ) -> None:
         self._cfg = cfg or AppConfig()
-        self._recognizer = GestureRecognizer(self._cfg.gesture)
-        self._tracker = HandTracker(self._cfg.tracking)
-        self._state_machine = GestureStateMachine(self._cfg.tracking)
-        self._dispatcher = ActionDispatcher(
+        self._recognizer = recognizer or GestureRecognizer(self._cfg.gesture)
+        self._tracker = tracker or HandTracker(self._cfg.tracking)
+        self._state_machine = state_machine or GestureStateMachine(self._cfg.tracking)
+        self._dispatcher = dispatcher or ActionDispatcher(
             cooldown=self._cfg.global_action_cooldown,
             audio_feedback=self._cfg.audio_feedback,
         )
-        self._renderer = Renderer(self._cfg.debug)
+        self._renderer = renderer or Renderer(self._cfg.debug)
+        self._injected_camera = camera_source
         self._shared = _AsyncSharedState()
         self._render_lock = threading.Lock()
         self._latest_render_snapshot: RenderSnapshot = RenderSnapshot()
@@ -152,26 +164,35 @@ class App:
             event_time = packet.capture_time
 
             # HandTracker & GestureStateMachine mutation is strictly owned by this thread
-            detections = self._build_detections(packet.result)
-            assignments = self._tracker.assign(detections, event_time)
-            detection_track_map: dict[int, int] = {}
-
-            for det_idx, track_id in assignments.items():
-                detection = detections[det_idx]
-                track = self._tracker.tracks[track_id]
-                self._tracker.update_position(track, detection, event_time)
-                detection_track_map[det_idx] = track_id
-
-                action = self._state_machine.update(track, detection, event_time)
-                if action != SlideAction.NONE:
-                    dispatched = self._dispatcher.dispatch(action, event_time)
-                    if dispatched:
-                        self._state_machine.latch(track)
-
-            self._tracker.expire_lost_tracks(assignments.values(), event_time)
+            detections, detection_track_map = self._process_frame_detections(packet.result, event_time)
 
             # Publish truly immutable RenderSnapshot for UI Main Thread
             self._publish_render_snapshot(detections, detection_track_map, packet)
+
+    def _process_frame_detections(
+        self,
+        raw_result: Any,
+        timestamp_sec: float,
+    ) -> tuple[list[HandDetection], dict[int, int]]:
+        """Processes raw vision results through detection, tracking, and gesture state machine."""
+        detections = self._build_detections(raw_result)
+        assignments = self._tracker.assign(detections, timestamp_sec)
+        detection_track_map: dict[int, int] = {}
+
+        for det_idx, track_id in assignments.items():
+            detection = detections[det_idx]
+            track = self._tracker.tracks[track_id]
+            self._tracker.update_position(track, detection, timestamp_sec)
+            detection_track_map[det_idx] = track_id
+
+            action = self._state_machine.update(track, detection, timestamp_sec)
+            if action != SlideAction.NONE:
+                dispatched = self._dispatcher.dispatch(action, timestamp_sec)
+                if dispatched:
+                    self._state_machine.latch(track)
+
+        self._tracker.expire_lost_tracks(assignments.values(), timestamp_sec)
+        return detections, detection_track_map
 
     def _publish_render_snapshot(
         self,
@@ -310,44 +331,12 @@ class App:
                         if packet is not None:
                             last_processed_ms = packet.timestamp_ms
                             event_time = packet.capture_time
-                            detections = self._build_detections(packet.result)
-                            assignments = self._tracker.assign(detections, event_time)
-                            detection_track_map = {}
-
-                            for det_idx, track_id in assignments.items():
-                                detection = detections[det_idx]
-                                track = self._tracker.tracks[track_id]
-                                self._tracker.update_position(track, detection, event_time)
-                                detection_track_map[det_idx] = track_id
-
-                                action = self._state_machine.update(track, detection, event_time)
-                                if action != SlideAction.NONE:
-                                    dispatched = self._dispatcher.dispatch(action, event_time)
-                                    if dispatched:
-                                        self._state_machine.latch(track)
-
-                            self._tracker.expire_lost_tracks(assignments.values(), event_time)
+                            detections, detection_track_map = self._process_frame_detections(packet.result, event_time)
 
                     else:
                         # Synchronous VIDEO baseline
                         result = landmarker.detect_for_video(mp_image, timestamp_ms)
-                        detections = self._build_detections(result)
-                        assignments = self._tracker.assign(detections, now)
-                        detection_track_map = {}
-
-                        for det_idx, track_id in assignments.items():
-                            detection = detections[det_idx]
-                            track = self._tracker.tracks[track_id]
-                            self._tracker.update_position(track, detection, now)
-                            detection_track_map[det_idx] = track_id
-
-                            action = self._state_machine.update(track, detection, now)
-                            if action != SlideAction.NONE:
-                                dispatched = self._dispatcher.dispatch(action, now)
-                                if dispatched:
-                                    self._state_machine.latch(track)
-
-                        self._tracker.expire_lost_tracks(assignments.values(), now)
+                        detections, detection_track_map = self._process_frame_detections(result, now)
 
                     is_minimized = bool(_user32.IsIconic(hwnd)) if hwnd else False
 
@@ -398,7 +387,7 @@ class App:
     def _minimize_window(hwnd: int) -> None:
         try:
             if hwnd:
-                _user32.ShowWindow(hwnd, 6)
+                _user32.ShowWindow(hwnd, SW_MINIMIZE)
         except Exception:
             pass
 
@@ -429,6 +418,8 @@ class App:
         return detections
 
     def _setup_camera(self) -> CameraSource:
+        if self._injected_camera is not None:
+            return self._injected_camera
         return create_camera_source(
             self._cfg.camera,
             force_winrt_failure=self._cfg.camera.force_winrt_init_failure,

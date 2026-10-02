@@ -161,8 +161,9 @@ class CameraSource(ABC):
 class OpenCVMSMFCameraSource(CameraSource):
     """OpenCV Media Foundation camera source."""
 
-    def __init__(self, cfg: CameraConfig):
+    def __init__(self, cfg: CameraConfig, fallback_reason: str | None = None):
         self._cfg = cfg
+        self._fallback_reason = fallback_reason
         self._cap: cv2.VideoCapture | None = None
         self._frame_index = 0
         self._rgb_ring = [np.zeros((cfg.height, cfg.width, 3), dtype=np.uint8) for _ in range(3)]
@@ -173,7 +174,7 @@ class OpenCVMSMFCameraSource(CameraSource):
             winrt_available=False,
             winrt_init_success=False,
             fallback_occurred=(cfg.backend.upper() in ["AUTO", "WINRT"]),
-            fallback_reason=None,
+            fallback_reason=fallback_reason,
             actual_width=0,
             actual_height=0,
             actual_fps=0.0,
@@ -589,8 +590,7 @@ def create_camera_source(
         # Fallback to MSMF for AUTO
         print(f"[WARN] WinRT initialization failed: {winrt_error_reason}")
         print("Falling back to MSMF. Camera backend: MSMF")
-        msmf_source = OpenCVMSMFCameraSource(cfg)
-        msmf_source._fallback_reason = winrt_error_reason  # type: ignore
+        msmf_source = OpenCVMSMFCameraSource(cfg, fallback_reason=winrt_error_reason)
         if not msmf_source.open():
             raise RuntimeError(f"MSMF fallback failed to open camera index {cfg.index}")
         return msmf_source
